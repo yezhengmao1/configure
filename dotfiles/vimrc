@@ -1,6 +1,4 @@
-" VundleVim 配置!!
-" 中文真的大丈夫??
-"===========!START!============
+"===========!Vundle Plugin Setting!============
 set nocompatible
 filetype off
 
@@ -12,12 +10,21 @@ call vundle#end()
 filetype plugin indent on
 
 "===========!END!==============
-"
-"配色
-syntax on
-set number
-set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 
+"===========!Base Setting!=========
+"配色设置
+syntax enable 
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+"行号开
+set number
+"编码设置
+set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+"===========!END!==================
+
+
+"===========!Plugin Setting!==========
 "PowerLine
 set guifont=PowerlineSymbols/for/Powerline
 set t_Co=256
