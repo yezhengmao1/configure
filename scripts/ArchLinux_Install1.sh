@@ -1,5 +1,5 @@
 #!/bin/bash
-#Warning:°²×°ÏµÍ³ºóÊ³ÓÃ! ±¾µØ»¯ÉèÖÃ!
+#Warning:å®‰è£…ç³»ç»ŸåŽé£Ÿç”¨! æœ¬åœ°åŒ–è®¾ç½®!
 echo "--Localization--"
 echo "--Config Locale--"
 cp /etc/locale.gen /etc/locale.gen.bak
@@ -10,7 +10,7 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc --utc
 systemctl enable dhcpcd
-#HOSTNAME×ÔÐÐÐÞ¸Ä
+#HOSTNAMEè‡ªè¡Œä¿®æ”¹
 HOSTNAME='Arch-Ye'
 echo ${HOSTNAME} > /etc/hostname
 sed -i '/localhost/s/$/\t'"${HOSTNAME}"'/g' /etc/hosts
