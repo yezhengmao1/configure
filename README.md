@@ -9,6 +9,7 @@
  	config-i3		-		i3wm配置文件  
 	config-polybar  -		polybar配置文件  
 	launch.sh		-		polybar加载脚本  
+	weather         -       用于polybar显示温度  
 	vimrc			-		vim配置文件  
 	solarized.vim	-		vim配色文件  
  	
