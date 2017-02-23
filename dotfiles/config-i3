@@ -78,7 +78,8 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 ### 终端 ###
 bindsym $mod+Return exec xfce4-terminal
 ### dmenu ###
-bindsym $mod+d exec i3-dmenu-desktop
+#bindsym $mod+d exec i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run
 
 floating_modifier $mod
 
@@ -147,6 +148,6 @@ bindsym $mod+r mode ""
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 bar {
-	tray_output nono
+	tray_output none 
 	mode invisible
 }
