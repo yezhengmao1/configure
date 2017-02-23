@@ -17,6 +17,12 @@ white = #FFFFFF
 moccasin = #FFE4B5
 lightpink = #FFB6C1
 yellowgreen = #9ACD32
+springgreen = #00FF7F
+coral = #FF7F50
+khaki = #F0E68C
+;自用配色
+orange1 = #FFD54F
+yellow1 = #F9A825
 
 [global/wm]
 margin-top = 0
@@ -33,16 +39,19 @@ font-1 = FontAwesome:size=14
 ;颜色
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-tray-position = right 
-tray-maxsize = 16
+;托盘
+tray-position = none 
+tray-maxsize = 24
 ;bar显示顺序
-modules-left = i3 
+modules-left = i3 wireless-network speed cpu weather 
 modules-center = 
-modules-right = xkeyboard temperature battery wireless-network speed memory cpu date volume 
+modules-right = xkeyboard battery memory date backlight volume 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+
+;托盘透明
+#tray-transparent = true
 
 ;键盘
 [module/xkeyboard]
@@ -51,13 +60,16 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 
-label-layout = %name%
+label-layout = %layout%
+label-indicator = %name%
 
-format =  <label-layout>
+format =  <label-layout> <label-indicator>
 format-spacing = 0
 format-foreground = ${colors.magenta}
 format-label-prefix= " "
 
+label-indicator-prefix = " "
+label-indicator-foreground = ${colors.red}
 ;电池设定
 [module/battery]
 type = internal/battery
@@ -131,6 +143,15 @@ ramp-2 = 
 format-prefix = " "
 format-warn-prefix = " "
 
+;天气
+[module/weather]
+type = custom/script
+interval = 1800
+format = <label>
+format-prefix = " "
+format-foreground = ${colors.moccasin}
+exec = python ~/.config/polybar/weather
+
 ;时间设定 
 [module/date]
 type = internal/date
@@ -145,7 +166,7 @@ format-prefix = " "
 
 label =   %date%   %time% 
 
-format-foreground = ${colors.moccasin}
+format-foreground = ${colors.orange1}
 
 ;github设定
 [module/github]
@@ -167,7 +188,7 @@ format-connected = <label-connected>
 
 label-connected =  %downspeed%  %upspeed%
 
-label-connected-foreground = ${colors.orange}
+label-connected-foreground = ${colors.cyan}
 
 ;内存
 [module/memory]
@@ -176,14 +197,14 @@ interval = 3
 format = <label> 
 format-prefix = " "
 label =  %gb_used%/%gb_free%
-label-foreground = ${colors.lightpink}
+label-foreground = ${colors.foreground}
 
 ;cpu
 [module/cpu]
 type = internal/cpu
 interval = 0.5
 format-prefix = " "
-format = <label> <ramp-coreload>
+format = <label> 
 label =  %percentage%%
 
 ramp-coreload-0 = ▁
@@ -207,11 +228,18 @@ interval = 3.0
 format-connected-prefix = " "
 format-disconnected-prefix = " "
 
-format-connected = <label-connected>
+format-connected = <label-connected> 
 format-disconnected = <label-disconnected>
 
-label-connected =  %essid%  %signal%%  
+label-connected =    
 label-disconnected =  [Not Connected]
+
+ramp-signal-0 = █
+ramp-signal-1 = ██
+ramp-signal-2 = ███
+ramp-signal-3 = ████
+ramp-signal-4 = █████
+ramp-signal-5 = ██████
 
 ramp-signal-foreground = ${colors.cyan}
 label-connected-foreground = ${colors.cyan}
@@ -228,7 +256,7 @@ format-disconnected-prefix = " "
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 
-label-connected =  %local_ip%  %downspeed%  %upspeed%
+label-connected =   %downspeed%  %upspeed%
 label-disconnected =  [Not Connected]
 
 label-connected-foreground = ${colors.foreground-alt}
@@ -239,7 +267,6 @@ label-disconnected-foreground = ${colors.red}
 type = internal/volume
 
 master-soundcard = default
-speaker-soundcard = default
 headphone-soundcard = default
 
 master-mixer = Master
@@ -247,13 +274,30 @@ master-mixer = Master
 format-volume-prefix = " "
 format-muted-prefix = " "
 
-format-volume = %{T1} <label-volume>
+format-volume =  <label-volume>
 
-label-muted =  [muted]
+label-muted = []
 label-muted-font = 1
 
 format-volume-foreground = ${colors.green}
 label-muted-foreground = ${colors.red}
+
+;背景亮度
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+format = <ramp> <label>
+
+lable = %percentage%%
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+format-prefix = " "
+format-foreground = ${colors.springgreen}
 
 ;i3wm窗口设置
 [module/i3]
