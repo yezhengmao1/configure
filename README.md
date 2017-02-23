@@ -25,3 +25,4 @@ i3-wm 可選安裝軟件
     Rofi -> 程序启动器  
     Thunar -> 文件管理器  
     NetworkManager -> 網絡管理  
+	Ranger -> 文件管理(终端)
