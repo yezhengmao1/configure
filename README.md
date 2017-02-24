@@ -23,6 +23,6 @@ i3-wm 可選安裝軟件
 
     Polybar -> 状态栏	(AUR)polybar-git    
     Rofi -> 程序启动器  
-    Thunar -> 文件管理器  
     NetworkManager -> 網絡管理  
 	Ranger -> 文件管理(终端)
+	Mplayer -> 视频播放器(终端)
