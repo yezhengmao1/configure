@@ -26,3 +26,4 @@ i3-wm 可選安裝軟件
     NetworkManager -> 網絡管理  
 	Ranger -> 文件管理(终端)
 	Mplayer -> 视频播放器(终端)
+	i3lock ->　锁屏软件
