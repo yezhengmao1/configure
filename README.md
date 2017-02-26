@@ -21,9 +21,10 @@ Vim 可選插件
 
 i3-wm 可選安裝軟件  
 
-    Polybar -> 状态栏	(AUR)polybar-git    
-    Rofi -> 程序启动器  
-    NetworkManager -> 網絡管理  
-	Ranger -> 文件管理(终端)
-	Mplayer -> 视频播放器(终端)
+    polybar -> 状态栏	(AUR)polybar-git    
+    rofi -> 程序启动器  
+    networkManager -> 網絡管理  
+	ranger -> 文件管理(终端)
+	mplayer -> 视频播放器(终端)
 	i3lock ->　锁屏软件
+	xcompmgr -> 窗口透明(特效)
