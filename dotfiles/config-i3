@@ -27,6 +27,17 @@ set $CL_LIGHTGRAY #ABB2BF
 set $CL_DARKGRAY #5C6370
 set $CL_WHITE #FFFFFF
 
+set $status_grey_bg     #101010
+set $black              #282A2E
+set $grey               #373B41
+set $lightgrey          #707880
+set $white              #C5C8C6
+set $yellow             #F0C674
+set $red                #CC6666
+set $darkred            #A54242
+set $green              #B5BD56
+set $purple             #cc6699
+
 ### 窗口颜色 ###
 client.focused          $CL_CUR     $CL_CUR     $CL_BG   $CL_CUR     $CL_CUR
 client.focused_inactive $CL_MAGENTA $CL_MAGENTA $CL_BG   $CL_MAGENTA $CL_MAGENTA
@@ -38,8 +49,8 @@ client.placeholder      $CL_BG      $CL_BG      $CL_WHITE $CL_BLACK  $CL_BG
 exec --no-startup-id feh --bg-scale "$HOME/Desktop/wallpaper.png"
 
 ### 窗口间距 ###
-new_window pixel 1 
-new_float pixel 1
+new_window pixel 4 
+new_float pixel 4
 
 ### 鼠标焦点 ###
 focus_follows_mouse no
@@ -48,6 +59,7 @@ focus_follows_mouse no
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xcompmgr -c -f -n
 
 ### 字体设置 ###
 font pango:DejaVu Sans Mono 8
