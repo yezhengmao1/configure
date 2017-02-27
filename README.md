@@ -8,16 +8,24 @@
  ~/dotfiles -> 配置文件夹  
 
    	config-i3		-		i3wm配置文件  
+
 	config-polybar  -		polybar配置文件  
 	launch.sh		-		polybar加载脚本  
 	weather         -       用于polybar显示温度  
-	vimrc			-		vim配置文件  
-	solarized.vim	-		vim配色文件  
- 	
-Vim 可選插件  
 
-    1. lightline.vim - 状态条  
-    2. vim-markdown - MarkDown语法高亮  
+	vimrc			-		vim配置文件  
+	solarized.vim	-		vim-solarized配色文件  
+ 	
+vim 可選插件  
+
+    lightline.vim - 状态条  
+    vim-markdown - MarkDown语法高亮  
+	nerdtree - 树形目录
+	rainbow - 括号匹配高亮
+	vim-cpp-enhanced-highlight - cpp高亮支持
+	vim-indent-guides - 可视化缩进
+	vim-signature - 书签可视化
+	youcompleteme - 超智能补全
 
 i3-wm 可選安裝軟件  
 
