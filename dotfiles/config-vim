@@ -1,0 +1,102 @@
+"===========!Vundle Plugin Setting!============
+"关闭兼容模式
+set nocompatible
+"文件类型侦测(不同语言加载不同插件:关)
+filetype off
+
+"插件安装列表
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/nerdtree'
+Plugin 'luochen1990/rainbow'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kshenoy/vim-signature'
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+filetype plugin indent on
+
+"===========!END!==============
+
+
+"===========!Base Setting!=========
+"配色设置
+syntax enable 
+syntax on
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+"字体
+set guifont=Monaco
+"行号开
+set number
+"编码设置
+set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+set encoding=utf-8
+"tab宽度
+set tabstop=4
+
+set ruler
+"高亮当前行/列
+set cursorline
+set cursorcolumn
+
+"实时搜索
+set incsearch
+"搜索大小写不敏感
+set ignorecase
+"高亮搜索结果
+set hlsearch
+
+"代码折叠
+set foldmethod=syntax
+set nofoldenable
+
+
+"===========!END!==================
+
+"===========!快捷键!==============
+let mapleader = ";"
+nmap <C-t> :NERDTreeToggle<CR>
+nmap <C-a> <ESC>ggVG"+y
+"选定内容复制到系统剪切板
+vnoremap <Leader>y "+y
+"系统剪切板粘贴
+nmap <Leader>p "+p
+"保存,关闭，保存退出
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>Q :qa!<CR>
+
+"===========!Plugin Setting!==========
+"lightline
+set laststatus=2
+set t_Co=256
+let g:lightline={
+	\ 'colorscheme':'wombat',
+	\ 'component':{
+	\ 'readonly' : '%{&readonly?"✗":""}',
+	\ },
+	\}
+"vim-markdown
+let g:vim_markdown_folding_disabled = 1
+set foldenable
+
+"nerdtree
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"rainbow
+let g:rainbow_active = 1
+
+"vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+

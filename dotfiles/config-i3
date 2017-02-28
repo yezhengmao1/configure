@@ -62,7 +62,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xcompmgr -c -f -n
 
 ### 字体设置 ###
-font pango:DejaVu Sans Mono 8
+font pango:Monaco 8
 font pango:monospace 12
 
 ### 工作组快捷键 ###

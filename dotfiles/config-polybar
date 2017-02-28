@@ -41,7 +41,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 ;托盘
 tray-position = none 
-tray-maxsize = 24
+tray-maxsize = 12
 ;bar显示顺序
 modules-left = i3 wireless-network speed cpu weather 
 modules-center = 
