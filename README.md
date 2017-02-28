@@ -25,7 +25,7 @@ vim 可選插件
 	vim-cpp-enhanced-highlight - cpp高亮支持
 	vim-indent-guides - 可视化缩进
 	vim-signature - 书签可视化
-	youcompleteme - 超智能补全
+	youcompleteme - 超智能补全(AUR)
 
 i3-wm 可選安裝軟件  
 
