@@ -93,12 +93,12 @@ format-full-prefix = " "
 ;参数设置
 label-charging = %percentage%%
 label-discharging = %percentage%%
-label-full =   100%
+label-full =  100%
 
 
 ;充电放电设定
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <animation-charging><label-charging>
+format-discharging = <ramp-capacity><label-discharging>
 
 
 ;<ramp-capacity>设定
@@ -164,7 +164,7 @@ date = %Y-%m-%d
 format = <label> 
 format-prefix = " "
 
-label =   %date%   %time% 
+label =  %date%   %time% 
 
 format-foreground = ${colors.orange1}
 
