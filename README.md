@@ -2,7 +2,6 @@
 
  ~/scraipts -> 脚本文件夹  
 
-    ArchLinux_Install*.sh -> ArchLinux系统安装脚本
     Dotfiles_Install.sh -> 配置文件部署
  
  ~/dotfiles -> 配置文件夹  
