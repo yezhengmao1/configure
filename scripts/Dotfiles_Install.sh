@@ -1,13 +1,13 @@
 #!/bin/bash
-#配置文件安装 vim
 cd ..
 cd ./dotfiles
-echo "==!Install Vimrc!=="
-#安装Vundle插件
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-#配色文件
+
 mkdir $HOME/.vim/colors
 cp solarized.vim $HOME/.vim/colors/
-#配置文件
-cp vimrc $HOME/.vimrc
+#配置文件安装
+cp config-vim $HOME/.vimrc
+cp config-polybar $HOME/.config/polybar/config
+cp launch.sh $HOME/.config/polybar/launch.sh
+cp weather $HOME/.config/polybar/weather
+co config-i3 $HOME/.config/i3/config
 echo "==!Done!=="
