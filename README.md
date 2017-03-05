@@ -28,6 +28,7 @@ vim 可選插件
 
 i3-wm 可選安裝軟件  
 
+	lightdm -> 启动管理器
     polybar -> 状态栏	(AUR)polybar-git    
     rofi -> 程序启动器  
 	ranger -> 文件管理(终端)
