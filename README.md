@@ -28,7 +28,8 @@ vim 可選插件
 
 i3-wm 可選安裝軟件  
 
-	lightdm(lightdm-gtk-greeter) -> 启动管理器
+	lightdm(lightdm-gtk-greeter/lightdm-gtk-greeter-settings) -> 启动管理器
+	xrander -> 分辨率调整
     polybar -> 状态栏	(AUR)polybar-git    
     rofi -> 程序启动器  
 	ranger -> 文件管理(终端)
