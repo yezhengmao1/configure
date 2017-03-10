@@ -15,7 +15,7 @@
 	vimrc			-		vim配置文件  
 	solarized.vim	-		vim-solarized配色文件  
  	
-vim 可選插件  
+vim 可选插件 
 
     lightline.vim - 状态条  
     vim-markdown - MarkDown语法高亮  
@@ -26,7 +26,7 @@ vim 可選插件
 	vim-signature - 书签可视化
 	youcompleteme - 超智能补全(AUR)
 
-i3-wm 可選安裝軟件  
+i3-wm 可选安装软件 
 
 	lightdm(lightdm-gtk-greeter/lightdm-gtk-greeter-settings) -> 启动管理器
 	xrander -> 分辨率调整
