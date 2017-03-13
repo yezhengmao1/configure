@@ -51,5 +51,6 @@ i3-wm 可选安装软件
 	atom/gvim -> 编辑器
 	visual-studio-code -> IDE编辑器(AUR)
 	hexchat -> irc聊天
+	proxychains -> 终端代理
 	
 	
