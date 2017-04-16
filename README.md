@@ -25,6 +25,7 @@ vim 可选插件
 	vim-cpp-enhanced-highlight -> cpp高亮支持
 	youcompleteme     ->    超智能补全(AUR)
 	vim-devicons      ->    添加图标(需要字体支持)
+	tagbar            ->    变量显示栏(需要ctags)
 
 i3-wm 可选安装软件 
 
