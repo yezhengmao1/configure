@@ -9,14 +9,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
-Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'luochen1990/rainbow'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kshenoy/vim-signature'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 filetype plugin indent on
 
@@ -31,7 +30,7 @@ set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
 "字体
-set guifont=Monaco
+set guifont=Monaco\ Droid\ Sans\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 21
 "行号开
 set number
 "编码设置
@@ -62,6 +61,7 @@ set nofoldenable
 "===========!快捷键!==============
 let mapleader = ";"
 nmap <C-t> :NERDTreeToggle<CR>
+nmap <C-v> :TagbarToggle<CR>
 nmap <C-a> <ESC>ggVG"+y
 "选定内容复制到系统剪切板
 vnoremap <Leader>y "+y
@@ -70,7 +70,6 @@ nmap <Leader>p "+p
 "保存,关闭，保存退出
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-nmap <Leader>Q :qa!<CR>
 
 "===========!Plugin Setting!==========
 "lightline
