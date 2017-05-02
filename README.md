@@ -63,6 +63,7 @@ i3-wm 可选安装软件
 	mplayer -> 视频播放器(终端)
 	shadowsocks -> sock5代理
 	moc/ncmpcpp/mpd -> 音乐播放器 
+	fcitx-im/fcitx-configtool/fcitx-sogoupinyin(AUR) -> 输入法
 
 	*系统管理
 
