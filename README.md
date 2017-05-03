@@ -47,6 +47,7 @@ i3-wm 可选安装软件
 	
 	*生产工具
 	
+	terminator -> 终端管理器
 	visual-studio-code -> IDE编辑器(AUR)
 	vim/gvim/atom -> 编辑器
 	
@@ -71,5 +72,3 @@ i3-wm 可选安装软件
 	alsa -> 声卡
 	networkmanager -> 网络管理
 	proxychains -> 终端代理
-
-
