@@ -3,6 +3,7 @@
  ~/scraipts -> 脚本文件夹  
 
     Dotfiles_Install.sh -> 配置文件部署
+	Yaourt_Install.sh -> 安装Yaourt
  
  ~/dotfiles -> 配置文件夹  
 
