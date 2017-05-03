@@ -1,3 +1,4 @@
+#!/bin/bash
 git clone https://aur.archlinux.org/package-query.git
 cd package-query
 makepkg -si

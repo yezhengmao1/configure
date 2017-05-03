@@ -32,6 +32,9 @@ i3-wm 可选安装软件
 	*字体
 	
 	ttf-monaco -> 一款很棒的等宽字体(AUR)
+	ttf-font-awesome -> fontawesome字体(AUR)
+	ttf-font-icons -> 图标字体(AUR)
+	powerline-fonts -> Powerline字体(AUR)
 	otf-font-awesome -> icon字体(AUR)
 	nerd-fonts-complete -> icon字体(AUR)
 	
@@ -68,6 +71,7 @@ i3-wm 可选安装软件
 
 	*系统管理
 
+	yaourt -> 包管理
     xfce4-power-manager -> 电源管理/亮度设置
 	alsa -> 声卡
 	networkmanager -> 网络管理
