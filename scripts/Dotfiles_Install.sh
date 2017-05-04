@@ -1,6 +1,5 @@
 #!/bin/bash
-cd ..
-cd ./dotfiles
+cd ../dotfiles
 
 mkdir $HOME/.vim
 mkdir $HOME/.vim/colors
