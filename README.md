@@ -1,17 +1,14 @@
 # ArchLinux-reminder
 
- ~/scraipts -> 脚本文件夹  
+ ~/scraipts -> 脚本文件夹 
 
     Dotfiles_Install.sh -> 配置文件部署
 	Yaourt_Install.sh -> 安装Yaourt
  
- ~/dotfiles -> 配置文件夹  
+ ~/dotfiles -> 配置文件夹 
 
    	config-i3         ->    i3wm配置文件  
-
-	config-polybar    ->    polybar配置文件  
-	launch.sh         ->    polybar加载脚本  
-	weather           ->    用于polybar显示温度  
+	config-awesome    ->    awesome配置文件
 
 	config-vim        ->    vim配置文件  
 	solarized.vim     ->    vim-solarized配色文件  
@@ -28,7 +25,7 @@ vim 可选插件
 	vim-devicons      ->    添加图标(需要字体支持)
 	tagbar            ->    变量显示栏(需要ctags)
 
-i3-wm 可选安装软件 
+可选安装软件 
 
 	*字体
 	
@@ -42,6 +39,8 @@ i3-wm 可选安装软件
 	*桌面
 	
 	lightdm(lightdm-gtk-greeter/lightdm-gtk-greeter-settings) -> 启动管理器
+	awesome -> WM桌面
+	i3-wm -> WM桌面
 	xrander -> 分辨率调整
 	xcompmgr -> 窗口透明(可解决fcitx输入法皮肤黑框问题)
     lxappearance -> 主题管理
