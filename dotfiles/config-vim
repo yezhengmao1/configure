@@ -2,8 +2,7 @@
 "关闭兼容模式
 set nocompatible
 "文件类型侦测(不同语言加载不同插件:关)
-filetype off
-
+filetype on 
 "插件安装列表
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,17 +10,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'luochen1990/rainbow'
-Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
-filetype plugin indent on
-
-"===========!END!==============
-
-
 "===========!Base Setting!=========
 "配色设置
 syntax enable 
@@ -30,47 +25,37 @@ set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
 "字体
-set guifont=Monaco\ Droid\ Sans\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 21
-"行号开
+set guifont=Monaco
+"行号开 
 set number
+"关闭自动注释
+set fo-=r
 "编码设置
-set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+set fileencodings=utf-8,gbk
 set encoding=utf-8
 "tab宽度
 set tabstop=4
-
-set ruler
 "高亮当前行/列
 set cursorline
 set cursorcolumn
-
 "实时搜索
 set incsearch
 "搜索大小写不敏感
 set ignorecase
 "高亮搜索结果
 set hlsearch
-
-"代码折叠
-set foldmethod=syntax
-set nofoldenable
-
-
-"===========!END!==================
-
 "===========!快捷键!==============
 let mapleader = ";"
-nmap <C-t> :NERDTreeToggle<CR>
-nmap <C-v> :TagbarToggle<CR>
+nmap <Leader>t :NERDTreeToggle<CR>
+nmap <Leader>v :TagbarToggle<CR>
 nmap <C-a> <ESC>ggVG"+y
 "选定内容复制到系统剪切板
 vnoremap <Leader>y "+y
 "系统剪切板粘贴
 nmap <Leader>p "+p
-"保存,关闭，保存退出
+"保存,关闭,保存退出
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-
 "===========!Plugin Setting!==========
 "lightline
 set laststatus=2
@@ -82,20 +67,17 @@ let g:lightline={
 	\ },
 	\}
 "vim-markdown
-let g:vim_markdown_folding_disabled = 1
-set foldenable
-
+"关闭折页
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_toc_autofit=1
 "nerdtree
-autocmd vimenter * NERDTree
+"自动开启/关
+"autocmd vimenter * NERDTree
+"无文件时自动打开
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"rainbow
-let g:rainbow_active = 1
-
-"vim-indent-guides
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
+"rainbow(高亮括号)
+let g:rainbow_active=1
+"tagbar
+let g:tagbar_width=25
