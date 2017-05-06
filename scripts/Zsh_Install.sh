@@ -1,4 +1,7 @@
 #!/bin/bash
-sudo pacman -S zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+#sudo pacman -S zsh
+git clone https://github.com/robbyrussell/oh-my-zsh $HOME/.oh-my-zsh
+cp $HOME/.oh-my-zsh/templates/zshrc.zsh-template $HOME/.zshrc
 sed -i 's/ZSH_THEME=".*"/ZSH_THEME="af-magic"/g' $HOME/.zshrc
+chsh -s /bin/zsh
+echo "Install Oh-My-Zsh [OK]"
