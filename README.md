@@ -51,7 +51,7 @@ vim 可选插件
 	
 	*生产工具
 	
-	terminator -> 终端管理器
+	rxvt-unicode(urxvt) -> 终端管理器
 	visual-studio-code -> IDE编辑器(AUR)
 	vim/gvim/atom -> 编辑器
 	
