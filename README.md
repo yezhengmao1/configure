@@ -32,9 +32,7 @@ vim 可选插件
 	
 	ttf-monaco                  -> 一款很棒的等宽字体(AUR)
 	ttf-font-awesome            -> fontawesome字体(AUR)
-	ttf-font-icons              -> 图标字体(AUR)
 	powerline-fonts             -> Powerline字体(AUR)
-	otf-font-awesome            -> icon字体(AUR)
 	nerd-fonts-complete         -> icon字体(AUR)
 	
 	*桌面
