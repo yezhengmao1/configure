@@ -3,14 +3,15 @@
  ~/scraipts -> 脚本文件夹 
 
     Dotfiles_Install.sh -> 配置文件部署
+	Font_Install.sh     -> 安装字体
+	App_Install.sh      -> 安装软件
 	Yaourt_Install.sh   -> 安装Yaourt
- 
+	
  ~/dotfiles -> 配置文件夹 
 
    	config-i3         ->    i3wm配置文件  
 	config-awesome    ->    awesome配置文件
-
-	config-zsh        ->    zsh配置文件
+	config-zsh        ->    zsh配置文件(*使用ohmyzsh)
 	config-urxvt      ->    urxvt配置文件
 	config-vim        ->    vim配置文件  
 	solarized.vim     ->    vim-solarized配色文件  
