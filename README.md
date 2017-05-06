@@ -23,8 +23,9 @@ vim 可选插件
     lightline                    ->    状态条  
     vim-markdown                 ->    MarkDown语法高亮  
 	nerdtree                     ->    树形目录
+	nerdcommenter                ->    快速注释
 	rainbow                      ->    括号匹配高亮
-	vim-cpp-enhanced-highlight   ->    cpp高亮支持
+	vim-polyglot                 ->    多语言高亮配色
 	youcompleteme                ->    超智能补全(AUR)
 	vim-devicons                 ->    添加图标(需要字体支持)
 	tagbar                       ->    变量显示栏(需要ctags)
