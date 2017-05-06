@@ -1,12 +1,11 @@
 #!/bin/bash
 cd ../dotfiles
-
-mkdir $HOME/.vim
-mkdir $HOME/.vim/colors
+mkdir -p $HOME/.vim/colors
 cp solarized.vim $HOME/.vim/colors/
 cp config-vim $HOME/.vimrc
+cp config-urxvt $HOME/.Xresources
+cp config-i3 $HOME/.config/i3/config
 cp config-polybar $HOME/.config/polybar/config
 cp launch.sh $HOME/.config/polybar/launch.sh
 cp weather $HOME/.config/polybar/weather
-cp config-i3 $HOME/.config/i3/config
-echo "==!Done!=="
+echo "Dotfiles Install [OK!]"
