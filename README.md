@@ -10,13 +10,14 @@
    	config-i3         ->    i3wm配置文件  
 	config-awesome    ->    awesome配置文件
 
+	config-urxvt      ->    urxvt配置文件
 	config-vim        ->    vim配置文件  
 	solarized.vim     ->    vim-solarized配色文件  
  	
 vim 可选插件 
 
 	vundle            ->    插件管理
-    lightline.vim     ->    状态条  
+    lightline     ->    状态条  
     vim-markdown      ->    MarkDown语法高亮  
 	nerdtree          ->    树形目录
 	rainbow           ->    括号匹配高亮
