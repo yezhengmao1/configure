@@ -40,14 +40,14 @@ vim 可选插件
 	*桌面
 	
 	lightdm(lightdm-gtk-greeter/lightdm-gtk-greeter-settings) -> 启动管理器
-	awesome 					-> WM桌面
-	i3-wm 						-> WM桌面
-	xrander 					-> 分辨率调整
-	xcompmgr 					-> 窗口透明(可解决fcitx输入法皮肤黑框问题)
+	awesome                     -> WM桌面
+	i3-wm                       -> WM桌面
+	xrander                     -> 分辨率调整
+	xcompmgr                    -> 窗口透明(可解决fcitx输入法皮肤黑框问题)
     lxappearance                -> 主题管理
-	polybar 					-> 状态栏	(AUR)polybar-git    
+	polybar                     -> 状态栏	(AUR)polybar-git    
 	i3lock                      -> 锁屏软件
-	arc-theme 					-> Gtk主题(AUR)
+	arc-theme                   -> Gtk主题(AUR)
 	
 	*生产工具
 	
@@ -57,23 +57,23 @@ vim 可选插件
 	
 	*日常软件
 	
-	rofi 						-> 程序启动器  
+	rofi                        -> 程序启动器  
 	thunar                      -> 文件管理(GUI)
 	ranger                      -> 文件管理(终端)
-	hexchat 					-> irc聊天
-	firefox 					-> 浏览器
-	telegram 					-> 聊天软件(AUR)
+	hexchat                     -> irc聊天
+	firefox                     -> 浏览器
+	telegram                    -> 聊天软件(AUR)
 	evince                      -> PDF查看软件
 	thunderbird                 -> 邮件查看
 	mplayer                     -> 视频播放器(终端)
 	shadowsocks                 -> sock5代理
-	moc/ncmpcpp/mpd				-> 音乐播放器 
+	moc/ncmpcpp/mpd             -> 音乐播放器 
 	fcitx-im/fcitx-configtool/fcitx-sogoupinyin(AUR) -> 输入法
 
 	*系统管理
 
 	yaourt                      -> 包管理
     xfce4-power-manager         -> 电源管理/亮度设置
-	alsa 						-> 声卡
-	networkmanager 				-> 网络管理
+	alsa                        -> 声卡
+	networkmanager              -> 网络管理
 	proxychains                 -> 终端代理
