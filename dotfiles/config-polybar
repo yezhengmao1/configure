@@ -3,7 +3,6 @@
 background = #282C34
 foreground = #ABB2BF
 foreground-alt= #528BFF
-
 black = #000000
 red = #E06C75
 green = #98C379
@@ -29,13 +28,43 @@ margin-top = 0
 margin-bottom = 0
 
 ;状态栏设定
-[bar/mybar]
+[bar/bar1]
 width = 100%
-height = 23 
+height = 24 
+;显示屏幕
+monitor = eDP-1 
+bottom = false 
 
 ;字体设置
 font-0 = Monaco:size=12:weight=bold
 font-1 = FontAwesome:size=14
+font-2 = DejaVuSansMonoForPowerline Nerd Font
+;颜色
+background = ${colors.background}
+foreground = ${colors.foreground}
+;托盘
+tray-position = none 
+tray-maxsize = 23 
+;bar显示顺序
+modules-left = i3 wireless-network speed cpu
+modules-center = 
+modules-right = xkeyboard battery memory date volume 
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;下方bar
+[bar/bar2]
+width = 100%
+height = 24 
+;显示屏幕
+monitor = HDMI-1
+;bottom = true
+
+;字体设置
+font-0 = Monaco:size=12:weight=bold
+font-1 = FontAwesome:size=14
+font-2 = DejaVuSansMonoForPowerline Nerd Font
 ;颜色
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -43,17 +72,14 @@ foreground = ${colors.foreground}
 tray-position = none 
 tray-maxsize = 12
 ;bar显示顺序
-modules-left = i3 wireless-network speed cpu weather 
+modules-left = i3 wireless-network speed cpu
 modules-center = 
-modules-right = xkeyboard battery memory date backlight volume lock 
+modules-right = xkeyboard battery memory date volume 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-;托盘透明
-#tray-transparent = true
-
-;键盘
+;键盘设置
 [module/xkeyboard]
 type = internal/xkeyboard
 
@@ -143,15 +169,6 @@ ramp-2 = 
 format-prefix = " "
 format-warn-prefix = " "
 
-;天气
-[module/weather]
-type = custom/script
-interval = 1800
-format = <label>
-format-prefix = " "
-format-foreground = ${colors.moccasin}
-exec = python ~/.config/polybar/weather
-
 ;时间设定 
 [module/date]
 type = internal/date
@@ -196,7 +213,7 @@ type = internal/memory
 interval = 3
 format = <label> 
 format-prefix = " "
-label =  %gb_used%/%gb_free%
+label =  %percentage_used%%
 label-foreground = ${colors.foreground}
 
 ;cpu
@@ -276,68 +293,35 @@ format-muted-prefix = " "
 
 format-volume =  <label-volume>
 
-label-muted = []
+label-muted =  
 label-muted-font = 1
 
 format-volume-foreground = ${colors.green}
 label-muted-foreground = ${colors.red}
-
-;背景亮度
-[module/backlight]
-type = internal/backlight
-card = intel_backlight
-
-format = <ramp> <label>
-
-
-lable = %percentage%%
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
-
-format-prefix = " "
-format-foreground = ${colors.springgreen}
-
-;锁屏
-[module/lock]
-type = custom/menu
-
-menu-0-0 =  
-menu-0-0-exec = i3lock -i $HOME/Desktop/wallpaper2.png & 
-
-label-open =   
-label-close = 
-
-label-separator =   
-
-label-open-foreground = ${colors.cyan}
-label-close-foreground = ${colors.red}
-
-format-prefix = " "
-
 ;i3wm窗口设置
 [module/i3]
 type = internal/i3
+;总体设定
+;index-sort = true
+;显示
 format = <label-state> <label-mode>
-
 index-sort = true
 wrapping-scroll = true
 
-label-focused = %index%
+strip-wsnumbers = true
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-background = ${colors.background}
+
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.foreground-alt}
 label-focused-padding = 1
 
-label-unfocused = %index%
 label-unfocused-padding = 1
 
-label-urgent = %index%
 label-urgent-foreground = ${colors.background}
 label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
-label-visible = %index%
 label-visible-padding = 1
-; vim:ft=dosini
