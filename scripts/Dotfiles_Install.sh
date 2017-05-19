@@ -8,5 +8,4 @@ cp config-urxvt $HOME/.Xresources
 cp config-i3 $HOME/.config/i3/config
 cp config-polybar $HOME/.config/polybar/config
 cp launch.sh $HOME/.config/polybar/launch.sh
-cp weather $HOME/.config/polybar/weather
 echo "Dotfiles Install [OK!]"
