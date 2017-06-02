@@ -61,6 +61,7 @@ vim 可选插件
 	
 	rofi                        -> 程序启动器  
 	thunar                      -> 文件管理(GUI)
+    gvfs-smb                    -> Thunar增加smaba服务
 	ranger                      -> 文件管理(终端)
 	hexchat                     -> irc聊天
 	firefox                     -> 浏览器
