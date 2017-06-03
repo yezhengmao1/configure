@@ -64,6 +64,7 @@ vim 可选插件
     gvfs-smb                    -> Thunar增加smaba服务
 	ranger                      -> 文件管理(终端)
 	hexchat                     -> irc聊天
+    chromium                    -> 浏览器
 	firefox                     -> 浏览器
 	telegram                    -> 聊天软件(AUR)
 	evince                      -> PDF查看软件
