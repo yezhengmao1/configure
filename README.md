@@ -65,6 +65,7 @@ vim 可选插件
 	ranger                      -> 文件管理(终端)
 	hexchat                     -> irc聊天
     chromium                    -> 浏览器
+    pepper-flash                -> Chromium的Flash支持(AUR)
 	firefox                     -> 浏览器
 	telegram                    -> 聊天软件(AUR)
 	evince                      -> PDF查看软件
