@@ -1,228 +1,306 @@
-;颜色设定
-[colors]
-background = #282C34
-foreground = #ABB2BF
-foreground-alt= #528BFF
-black = #000000
-red = #E06C75
-green = #98C379
-orange = #D19A66
-blue = #61AEEE
-magenta = #C678DD
-cyan = #56B6C2
-lightgray = #ABB2BF
-darkgray = #5C6370
-white = #FFFFFF
-moccasin = #FFE4B5
-lightpink = #FFB6C1
-yellowgreen = #9ACD32
-springgreen = #00FF7F
-coral = #FF7F50
-khaki = #F0E68C
-;自用配色
-orange1 = #FFD54F
-yellow1 = #F9A825
-
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+margin-top = 5
+margin-bottom = 5
 
-;状态栏设定
-[bar/bar1]
+;------左屏幕------
+[bar/barleft]
 width = 100%
 height = 24 
-;显示屏幕
-monitor = eDP-1 
-bottom = false 
-
-;字体设置
-font-0 = Monaco:size=12:weight=bold
-font-1 = FontAwesome:size=14
-font-2 = DejaVuSansMonoForPowerline Nerd Font
-;颜色
-background = ${colors.background}
-foreground = ${colors.foreground}
-;托盘
-tray-position = none 
-tray-maxsize = 23 
-;bar显示顺序
-modules-left = i3 wireless-network speed cpu
-modules-center = 
-modules-right = xkeyboard battery memory date volume 
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-;下方bar
-[bar/bar2]
-width = 100%
-height = 24 
-;显示屏幕
 monitor = HDMI-1
-;bottom = true
+bottom = false
 
-;字体设置
 font-0 = Monaco:size=12:weight=bold
-font-1 = FontAwesome:size=14
-font-2 = DejaVuSansMonoForPowerline Nerd Font
-;颜色
+font-1 = FontAwesome:size=12
+font-2 = DejaVuSansMonoForPowerline Nerd Font:size=12
+font-3 = WenQuanYi Micro Hei Mono:size=12
+
 background = ${colors.background}
 foreground = ${colors.foreground}
-;托盘
+
 tray-position = none 
-tray-maxsize = 12
-;bar显示顺序
-modules-left = i3 wireless-network speed cpu
+
+modules-left = i3 xwindow 
 modules-center = 
-modules-right = xkeyboard battery memory date volume 
+modules-right = xkeyboard battery volume date
+
+underline-size=4
+underline-color=#00f
+overline-size=0
+overline-color=#f00
+
+border-bottom-size=0
+border-bottom-color=${colors.background}
+
+module-margin-left=0
+module-margin-right=1
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-;键盘设置
+;------右屏幕-----
+[bar/barright]
+width = 100%
+height = 24 
+monitor = eDP-1
+bottom = false
+
+font-0 = Monaco:size=12:weight=bold
+font-1 = FontAwesome:size=12
+font-2 = DejaVuSansMonoForPowerline Nerd Font:size=12
+font-3 = WenQuanYi Micro Hei Mono:size=12
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+tray-position = none 
+
+modules-left = i3 xwindow
+modules-center = 
+modules-right = xkeyboard battery volume date
+
+underline-size=4
+underline-color=#00f
+overline-size=0
+overline-color=#f00
+
+border-bottom-size=0
+border-bottom-color=${colors.background}
+
+module-margin-left=0
+module-margin-right=1
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;-------底端------
+[bar/barbottom]
+width = 100%
+height = 24
+monitor = eDP-1
+bottom = true 
+
+font-0 = Monaco:size=12:weight=bold
+font-1 = FontAwesome:size=12
+font-2 = DejaVuSansMonoForPowerline Nerd Font:size=12
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+tray-position = none 
+
+modules-left = 
+modules-center = 
+modules-right = memory cpu 
+
+underline-size=4
+underline-color=#00f
+overline-size=0
+overline-color=#f00
+
+border-bottom-size=0
+border-bottom-color=${colors.background}
+
+module-margin-left=0
+module-margin-right=1
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;-------bspwm--------
+[module/bspwm]
+type = internal/bspwm
+ws-icon-default = x
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= #f3f99d
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+;-------i3-----------
+[module/i3]
+type=internal/i3
+format=<label-state> <label-mode>
+index-sort=true
+wrapping-scroll=false
+strip-wsnumbers=true
+pin-workspaces=false 
+
+label-mode-padding=2
+label-mode-foreground=#000
+label-mode-background=${colors.primary}
+
+label-focused = %name%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+label-unfocused = %name%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+label-urgent = %name%!
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+;-------xwindow显示当前焦点程序------
+[module/xwindow]
+type=internal/xwindow
+label="> %title%"
+label-maxlen=20
+
+;-------键盘---------
 [module/xkeyboard]
-type = internal/xkeyboard
+type=internal/xkeyboard
+blacklist-0=num lock
+blacklist-1=scroll lock
 
-blacklist-0 = num lock
-blacklist-1 = scroll lock
+label-layout=  %layout% 
+label-layout-padding = 2
+label-layout-background = ${colors.dgreen}
+label-layout-underline = ${colors.green}
 
-label-layout = %layout%
-label-indicator = %name%
+label-indicator-padding = 2
+label-indicator-background = ${colors.dpink}
+label-indicator-underline = ${colors.pink}
 
-format =  <label-layout> <label-indicator>
-format-spacing = 0
-format-foreground = ${colors.magenta}
-format-label-prefix= " "
-
-label-indicator-prefix = " "
-label-indicator-foreground = ${colors.red}
-;电池设定
+;-------电源---------
 [module/battery]
-type = internal/battery
+type=internal/battery
+full-at=99
+battery=BAT0
+adapter=ADP1
 
-full-at = 99 
+format-charging = <animation-charging> <label-charging>
+format-charging-padding = 1
+format-charging-background = ${colors.dorange}
+format-charging-underline = ${colors.orange}
 
-;Use the command to list batteries and adapters: 
-;ls -l /sys/class/power_supply/
-battery = BAT0
-adapter = ADP1 
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 1
+format-discharging-background = ${colors.dorange}
+format-discharging-underline = ${colors.orange}
 
-poll-interval = 5
+format-full-prefix = " "
+format-full-padding = 1
+format-full-background = ${colors.dorange}
+format-full-underline = ${colors.orange}
 
-time-format = %H:%M
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
 
-format-charging-prefix = " "
-format-discharging-prefix = " "
-format-full-prefix = " "
-
-
-;参数设置
-label-charging = %percentage%%
-label-discharging = %percentage%%
-label-full =  100%
-
-
-;充电放电设定
-format-charging = <animation-charging><label-charging>
-format-discharging = <ramp-capacity><label-discharging>
-
-
-;<ramp-capacity>设定
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-;<animation-charging>设定
-animation-charging-0 =   
-animation-charging-1 =   
-animation-charging-2 =   
-animation-charging-3 =   
-animation-charging-4 =   
-animation-charging-framerate = 750
 
-;颜色
-format-charging-foreground = ${colors.green}
-format-discharging-foreground = ${colors.orange}
-format-full-foreground = ${colors.green}
+;-------时间--------
+[module/date]
+type=internal/date
+interval=1.0
 
-;溫度
+time=%H:%M:%S
+date=%Y-%m-%d
+
+label=  %time% 
+
+format-padding=1
+format-underline=${colors.cyan}
+format-background=${colors.dcyan}
+
+;-------音量--------
+[module/volume]
+type = internal/volume
+
+label-volume = %percentage%%
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 1
+format-volume-background = ${colors.dorange}
+format-volume-underline = ${colors.orange}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-muted = 
+format-muted-padding = 1
+format-muted-background = ${colors.dpink}
+format-muted-underline = ${colors.pink}
+
+;-------mem---------
+[module/memory]
+type=internal/memory
+interval=2
+
+format=<label> <bar-used>
+label =  
+format-padding = 1
+bar-used-indicator =
+bar-used-width = 20
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
+format-background = ${colors.dcyan}
+format-underline = ${colors.cyan}
+
+;-------温度BUG不可用-------
 [module/temperature]
 type = internal/temperature
-interval = 0.5
+interval = 1
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-
 label = %temperature%
-label-warn =  %temperature%
-label-warn-foreground = ${colors.red} 
-label-foreground = ${colors.orange}
-ramp-foreground = ${colors.orange}
+format = <ramp> <label>
+format-padding = 1
+format-background = ${colors.dcyan}
+format-underline = ${colors.cyan}
+
+label-warn = %temperature%
+format-warn = <ramp> <label-warn>
+format-warn-padding = 1
+format-warn-background = ${colors.dpink}
+format-warn-underline = ${colors.pink}
 
 ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 
-format-prefix = " "
-format-warn-prefix = " "
-
-;时间设定 
-[module/date]
-type = internal/date
-;刷新时间1s
-interval = 1.0
-;时间日期格式设置
-time = %H:%M:%S
-date = %Y-%m-%d
-
-format = <label> 
-format-prefix = " "
-
-label =  %date%   %time% 
-
-format-foreground = ${colors.orange1}
-
-;github设定
-[module/github]
-type = internal/github
-token = ${env:GITHUB_ACCESS_TOKEN}
-empty-notifications = false
-
-format = <label>
-label = github %notifications%
-
-;网速
-[module/speed]
-type = internal/network
-interface = wlp5s0
-
-format-connected-prefix = " "
-
-format-connected = <label-connected>
-
-label-connected =  %downspeed%  %upspeed%
-
-label-connected-foreground = ${colors.cyan}
-
-;内存
-[module/memory]
-type = internal/memory
-interval = 3
-format = <label> 
-format-prefix = " "
-label =  %percentage_used%%
-label-foreground = ${colors.foreground}
-
-;cpu
+;-------CPU---------
 [module/cpu]
 type = internal/cpu
-interval = 0.5
-format-prefix = " "
-format = <label> 
-label =  %percentage%%
+interval = 2
+
+label = 
+format = <label> <ramp-coreload>
+format-padding = 1
+format-background = ${colors.dgreen}
+format-underline = ${colors.green}
 
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
@@ -232,96 +310,25 @@ ramp-coreload-4 = ▅
 ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
 ramp-coreload-7 = █
-
-format-foreground = ${colors.yellowgreen}
-
-;无线链接
-[module/wireless-network]
-type = internal/network
-;iwconfig 查看
-interface = wlp5s0 
-
-interval = 3.0
-format-connected-prefix = " "
-format-disconnected-prefix = " "
-
-format-connected = <label-connected> 
-format-disconnected = <label-disconnected>
-
-label-connected =    
-label-disconnected =  [Not Connected]
-
-ramp-signal-0 = █
-ramp-signal-1 = ██
-ramp-signal-2 = ███
-ramp-signal-3 = ████
-ramp-signal-4 = █████
-ramp-signal-5 = ██████
-
-ramp-signal-foreground = ${colors.cyan}
-label-connected-foreground = ${colors.cyan}
-label-disconnected-foreground = ${colors.red}
-
-;有线链接
-[module/wired-network]
-type = internal/network
-interface = enp4s0 
-
-format-connected-prefix = " "
-format-disconnected-prefix = " "
-
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-
-label-connected =   %downspeed%  %upspeed%
-label-disconnected =  [Not Connected]
-
-label-connected-foreground = ${colors.foreground-alt}
-label-disconnected-foreground = ${colors.red}
-
-;声音设置
-[module/volume]
-type = internal/volume
-
-master-soundcard = default
-headphone-soundcard = default
-
-master-mixer = Master
-
-format-volume-prefix = " "
-format-muted-prefix = " "
-
-format-volume =  <label-volume>
-
-label-muted =  
-label-muted-font = 1
-
-format-volume-foreground = ${colors.green}
-label-muted-foreground = ${colors.red}
-;i3wm窗口设置
-[module/i3]
-type = internal/i3
-;总体设定
-;index-sort = true
-;显示
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = true
-
-strip-wsnumbers = true
-pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-background = ${colors.background}
-
-label-focused-foreground = ${colors.background}
-label-focused-background = ${colors.foreground-alt}
-label-focused-padding = 1
-
-label-unfocused-padding = 1
-
-label-urgent-foreground = ${colors.background}
-label-urgent-background = ${colors.red}
-label-urgent-padding = 1
-
-label-visible-padding = 1
+;-------颜色--------
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #55
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+white = #f8f8f8
+pink = #F92672
+dpink = #a01849
+cyan = #23ceef
+dcyan = #157b8f
+purple = #8e4fff
+dpurple = #5a32a2
+orange = #f4a63a
+dorange = #aa7428
+green = #A6E22E
+dgreen = #77A915
+black = #000000
+bgblue = #010024
