@@ -1,5 +1,5 @@
 "===========!Vundle Plugin Setting!============
-"关闭兼容模式
+"关闭vi兼容模式
 set nocompatible
 "文件类型侦测(不同语言加载不同插件:关)
 filetype on 
@@ -22,8 +22,7 @@ call vundle#end()
 syntax enable 
 syntax on
 set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
+colorscheme gruvbox 
 "字体
 set guifont=Monaco
 "行号开 
@@ -33,8 +32,6 @@ set fo-=r
 "编码设置
 set fileencodings=utf-8,gbk
 set encoding=utf-8
-"tab宽度
-set tabstop=4
 "高亮当前行/列
 set cursorline
 set cursorcolumn
@@ -44,18 +41,21 @@ set incsearch
 set ignorecase
 "高亮搜索结果
 set hlsearch
+"缩进
+filetype indent on
+set expandtab
+set tabstop=4
+set shiftwidth=4
 "===========!快捷键!==============
 let mapleader = ";"
 nmap <Leader>t :NERDTreeToggle<CR>
 nmap <Leader>v :TagbarToggle<CR>
 nmap <C-a> <ESC>ggVG"+y
-"选定内容复制到系统剪切板
-vnoremap <Leader>y "+y
-"系统剪切板粘贴
+nmap <C-s> :w<CR>
 nmap <Leader>p "+p
-"保存,关闭,保存退出
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+vnoremap <Leader>y "+y
 "===========!Plugin Setting!==========
 "lightline
 set laststatus=2
