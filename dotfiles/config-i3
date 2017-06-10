@@ -1,36 +1,11 @@
-### MOD键设置 Alt ###
+### 变量  ###
 set $mod Mod1
-### 开机自启 ###
-exec --no-startup-id nm-applet
-exec --no-startup-id fcitx
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id xcompmgr -c -f -n
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-### 壁纸设置 ###
-exec --no-startup-id feh --bg-scale "$HOME/Desktop/wallpaper.png"
-### 终端 ###
-bindsym $mod+Return exec urxvt
-### dmenu ###
-bindsym $mod+d exec rofi -show run
 
-### 设置　###
-smart_borders on
-### 颜色设置 ###
-set $CL_BG #282C34
-set $CL_FG #ABB2BF
-set $CL_CUR #528BFF
-set $CL_BLACK #000000
-set $CL_RED #E06C75
-set $CL_GREEN #98C379
-set $CL_ORANGE #D19A66
-set $CL_BLUE #61AEEE
-set $CL_MAGENTA #C678DD
-set $CL_CYAN #56B6C2
-set $CL_LIGHTGRAY #ABB2BF
-set $CL_DARKGRAY #5C6370
-set $CL_WHITE #FFFFFF
+set $ws1 1: _ 
+set $ws2 2:  
+set $ws3 3: 
 
-set $status_grey_bg     #101010
+set $back               #1d1F21
 set $black              #282A2E
 set $grey               #373B41
 set $lightgrey          #707880
@@ -39,72 +14,71 @@ set $yellow             #F0C674
 set $red                #CC6666
 set $darkred            #A54242
 set $green              #B5BD56
-set $purple             #cc6699
 
-### 窗口颜色 ###
-client.focused          $CL_CUR     $CL_CUR     $CL_BG   $CL_CUR     $CL_CUR
-client.focused_inactive $CL_MAGENTA $CL_MAGENTA $CL_BG   $CL_MAGENTA $CL_MAGENTA
-client.unfocused        $CL_BG      $CL_BG      $CL_CUR  $CL_BG      $CL_BG
-client.urgent           $CL_RED     $CL_RED     $CL_BG   $CL_RED     $CL_RED
-client.placeholder      $CL_BG      $CL_BG      $CL_WHITE $CL_BLACK  $CL_BG
+### Mod ###
+### 窗口大小调整 ###
+mode "" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
-### 鼠标焦点 ###
-focus_follows_mouse no
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
-### i3-gaps窗口间距　###
-gaps inner 5 
 ### 字体设置 ###
-font pango:Monaco 8
-font pango:monospace 12
+font pango:Monaco 12 
 
-### 工作组快捷键 ###
-set $ws1 1: Cmd 
-set $ws2 2: Net 
-set $ws3 3: Tmp 
-set $ws4 4: Tmp 
-set $ws5 5: Tmp 
-set $ws6 6: Tmp 
+### 开机自启 ###
+exec --no-startup-id nm-applet
+exec --no-startup-id fcitx
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id dunst
+exec --no-startup-id xcompmgr -c -f -n
+exec --no-startup-id xrandr --output HDMI-1 --left-of eDP-1
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id feh --bg-scale "$HOME/Desktop/wallpaper.png"
 
+### 快捷键 ###
+
+### 软件快捷键 ###
+bindsym $mod+Return exec urxvt
+bindsym $mod+d exec rofi -show run
+
+bindsym $mod+t border toggle
+
+### 窗口快捷键 ###
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-
-
-### 窗口操作快捷键 ###
-floating_modifier $mod
 
 bindsym $mod+Shift+q kill
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down 
+bindsym $mod+k focus up 
+bindsym $mod+l focus right 
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move right 
+bindsym $mod+Shift+j move down 
+bindsym $mod+Shift+k move up 
+bindsym $mod+Shift+l move right
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+h split h
+bindsym $mod+p split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
@@ -120,24 +94,29 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-### 窗口大小调整 ###
-mode "" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
 bindsym $mod+r mode ""
+
+### 窗口颜色 ###
+#class                  border      backgr.     text        split
+client.focused          $green     $green       $black      $red
+client.focused_inactive $grey       $grey       $lightgrey  $grey
+client.unfocused        $grey       $grey       $lightgrey  $grey
+client.urgent           $red        $red        $black      $red
+client.background       $back
+
+### 窗口设定 ###
+for_window [class="^."] border pixel 0
+
+### 鼠标焦点 ###
+focus_follows_mouse no
+
+### 窗口浮动 ###
+for_window [title="Minecraft"] floating enable
+for_window [class="lxappearance"] floating enable
+for_window [title="外观"] floating enable
+
+### i3-gaps窗口间距　###
+gaps inner 10
+gaps outer -4
+smart_borders on
+smart_gaps on
