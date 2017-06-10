@@ -52,6 +52,7 @@ vim 可选插件
 	polybar                     -> 状态栏	(AUR)polybar-git    
 	i3lock                      -> 锁屏软件
 	arc-theme                   -> Gtk主题(AUR)
+    dunst                       -> 系统通知
 	
 	*生产工具
 	
