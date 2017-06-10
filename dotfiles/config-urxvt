@@ -17,34 +17,31 @@ URxvt.loginShell:       true
 URxvt.saveLines:        50
 URxvt.internalBorder:   3
 URxvt.lineSpace:		0
-*background: 			#002b36
-*foreground:	    	#657b83
-*fadeColor: 		    #002b36
-*cursorColor:           #93a1a1
-*pointerColorBackground:#586e75
-*pointerColorForeground:#93a1a1
-*color0: 			    #073642
-*color8:                #002b36
-*color1:                #dc322f
-*color9:                #cb4b16
-*color2:                #859900
-*color10:               #586e75
-*color3:                #b58900
-*color11:               #657b83
-*color4:                #268bd2
-*color12:               #839496
-*color5:                #d33682
-*color13:               #6c71c4
-*color6:                #2aa198
-*color14:               #93a1a1
-*color7:                #eee8d5
-*color15:               #fdf6e3
+*background: #1D2426
+*foreground: #8FA388
+*cursorColor: #BE5E1E
+*color0:  #39474A
+*color1:  #986345
+*color2:  #788249
+*color3:  #9B6A46
+*color4:  #3E5951
+*color5:  #B9924A
+*color6:  #5d796a
+*color7:  #977D5E
+*color8:  #4C5F63
+*color9:  #B07350
+*color10: #869151
+*color11: #AF6B42
+*color12: #567A6E
+*color13: #D69D55
+*color14: #668574
+*color15: #AB9C71
 !光标设置             
 URxvt.cursorBlink:	    true
 URxvt.cursorUnderLine:  true
 URxvt.savelines:        500
 !打开url设置
-URxvt.urlLauncher:      firefox
+URxvt.urlLauncher:      chromium 
 !透明
 !URxvt.inheritPixmap:true
 !URxvt.tintCddolor:white
