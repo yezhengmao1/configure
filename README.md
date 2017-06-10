@@ -16,6 +16,8 @@
 	config-urxvt      ->    urxvt配置文件
 	config-vim        ->    vim配置文件  
 	solarized.vim     ->    vim-solarized配色文件  
+    gruvbox.vim       ->    vim-gruvbox配色文件
+
  	
 vim 可选插件 
 
