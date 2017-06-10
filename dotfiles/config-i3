@@ -105,7 +105,7 @@ client.urgent           $red        $red        $black      $red
 client.background       $back
 
 ### 窗口设定 ###
-for_window [class="^."] border pixel 0
+for_window [class="^."] border pixel 4 
 
 ### 鼠标焦点 ###
 focus_follows_mouse no
