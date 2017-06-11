@@ -1,0 +1,21 @@
+#!/bin/python
+import urllib.request
+import json
+
+#郫县cityid
+cityid='101270107'
+url_api='http://www.weather.com.cn/data/sk/'
+url=url_api+cityid+'.html'
+
+#获取网页
+html = urllib.request.urlopen(url)
+#获取json表单
+json_string = html.read()
+parsed_json = json.loads(json_string)
+weatherinfo=parsed_json['weatherinfo']
+city=weatherinfo['city']
+temp=weatherinfo['temp']
+sd=weatherinfo['SD']
+print(city,"温度:",temp+"°C","湿度:",sd)
+#获取信息
+html.close()
