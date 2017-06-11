@@ -82,14 +82,15 @@ bottom = true
 font-0 = Monaco:size=12:weight=bold
 font-1 = FontAwesome:size=12
 font-2 = DejaVuSansMonoForPowerline Nerd Font:size=12
+font-3 = WenQuanYi Micro Hei Mono:size=12
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 tray-position = none 
 
-modules-left = 
-modules-center = 
+modules-left = wired wifi weather
+modules-center =  
 modules-right = memory cpu 
 
 underline-size=4
@@ -310,6 +311,58 @@ ramp-coreload-4 = ▅
 ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
 ramp-coreload-7 = █
+;-------WIFI--------
+[module/wifi]
+type=internal/network
+;iwconfig查看
+interface=wlp5s0
+interval=1.0
+
+accumulate-stats=true
+
+format-disconnected = <label-disconnected>
+label-disconnected=   
+format-disconnected-padding=1
+format-disconnected-background=${colors.dpink}
+format-disconnected-underline=${colors.pink}
+
+format-connected=<label-connected>
+label-connected=    %downspeed:9:9%  %upspeed:9:9%
+format-connected-padding=1
+format-connected-background=${colors.dgreen}
+format-connected-underline=${colors.green}
+;-------有线连接----
+[module/wired]
+type=internal/network
+;iwconfig查看
+interface=enp4s0
+interval=1.0
+
+accumulate-stats=true
+
+format-disconnected = <label-disconnected>
+label-disconnected=   
+format-disconnected-padding=1
+format-disconnected-background=${colors.dpink}
+format-disconnected-underline=${colors.pink}
+
+format-connected=<label-connected>
+label-connected=   %downspeed:9:9%  %upspeed:9:9%
+format-connected-padding=1
+format-connected-background=${colors.dcyan}
+format-connected-underline=${colors.cyan}
+
+;-------天气--------
+[module/weather]
+type=custom/script
+exec=$HOME/.config/polybar/weather
+interval=1000
+format=<label>
+format-padding=1;
+format-background=${colors.dpurple}
+format-underline=${colors.purple}
+label=%output%
+
 ;-------颜色--------
 [colors]
 background = #222
