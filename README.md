@@ -76,7 +76,8 @@ vim 可选插件
 	thunderbird                 -> 邮件查看
 	mplayer                     -> 视频播放器(终端)
 	shadowsocks                 -> sock5代理
-	moc/ncmpcpp/mpd             -> 音乐播放器 
+    mpd                         -> 音乐播放器后端
+	moc/ncmpcpp                 -> 音乐播放器前端
 	fcitx-im/fcitx-configtool/fcitx-sogoupinyin(AUR) -> 输入法
 
 	*系统管理
