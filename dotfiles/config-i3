@@ -1,9 +1,10 @@
 ### 变量  ###
 set $mod Mod1
 
-set $ws1 1: _ 
+set $ws1 1:  
 set $ws2 2:  
-set $ws3 3: 
+set $ws3 3: 
+set $ws4 4: 
 
 set $back               #1d1F21
 set $black              #282A2E
@@ -17,7 +18,7 @@ set $green              #B5BD56
 
 ### Mod ###
 ### 窗口大小调整 ###
-mode "" {
+mode "" {
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -52,10 +53,12 @@ bindsym $mod+t border toggle
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
 
 bindsym $mod+Shift+q kill
 bindsym $mod+h focus left
@@ -94,7 +97,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-bindsym $mod+r mode ""
+bindsym $mod+r mode ""
 
 ### 窗口颜色 ###
 #class                  border      backgr.     text        split
