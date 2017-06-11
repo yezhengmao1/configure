@@ -5,8 +5,10 @@
     Dotfiles_Install.sh -> 配置文件部署
 	Font_Install.sh     -> 安装字体
 	Zsh_Install.sh      -> 安装oh-my-zsh
-	App_Install.sh      -> 安装软件
 	Yaourt_Install.sh   -> 安装Yaourt
+
+    launch.sh           -> polbar启动文件
+    weather             -> 天气获取
 	
  ~/dotfiles -> 配置文件夹 
 
