@@ -9,7 +9,7 @@
 	Zsh_Install.sh      -> 安装oh-my-zsh
 	Yaourt_Install.sh   -> 安装Yaourt
 
-    launch.sh           -> polbar启动文件
+    launch.sh           -> polybar启动文件
     weather             -> 天气获取
 	
  ~/dotfiles -> 配置文件夹 
