@@ -1,5 +1,7 @@
 # ArchLinux-reminder
 
+![](https://github.com/Pipapa/ArchLinux-Dotfiles/blob/master/screen.png)
+
  ~/scraipts -> 脚本文件夹 
 
     Dotfiles_Install.sh -> 配置文件部署
