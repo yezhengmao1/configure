@@ -2,20 +2,29 @@
 import urllib.request
 import json
 
-#郫县cityid
-cityid='101270107'
-url_api='http://www.weather.com.cn/data/sk/'
-url=url_api+cityid+'.html'
+api_url='http://api.wunderground.com/api/'
+api_key=''
+features='/geolookup/conditions'
+settings='/lang:CN'
+query='/zmw:00000.62.57993'
+format='json'
+
+get_url=api_url+api_key+features+settings+'/q'+query+'.'+format
 
 #获取网页
-html = urllib.request.urlopen(url)
+html = urllib.request.urlopen(get_url)
 #获取json表单
 json_string = html.read()
 parsed_json = json.loads(json_string)
-weatherinfo=parsed_json['weatherinfo']
-city=weatherinfo['city']
-temp=weatherinfo['temp']
-sd=weatherinfo['SD']
-print(city,"温度:",temp+"°C","湿度:",sd)
-#获取信息
+
+location=parsed_json['location']
+conditions=parsed_json['current_observation']
+
+city=location['city']
+temp=conditions['temp_c']
+weather=conditions['weather']
+humidity=conditions['relative_humidity']
+
+print(' 成都','天气:',weather,'温度:',temp,'°C','湿度:',humidity)
+
 html.close()

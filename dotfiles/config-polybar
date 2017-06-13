@@ -356,7 +356,7 @@ format-connected-underline=${colors.cyan}
 [module/weather]
 type=custom/script
 exec=$HOME/.config/polybar/weather
-interval=1000
+interval=600
 format=<label>
 format-padding=1;
 format-background=${colors.dpurple}
