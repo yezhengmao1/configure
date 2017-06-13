@@ -167,8 +167,6 @@ label-maxlen=20
 ;-------键盘---------
 [module/xkeyboard]
 type=internal/xkeyboard
-blacklist-0=num lock
-blacklist-1=scroll lock
 
 label-layout=  %layout% 
 label-layout-padding = 2
