@@ -89,9 +89,9 @@ foreground = ${colors.foreground}
 
 tray-position = none 
 
-modules-left = wired wifi weather
-modules-center =  
-modules-right = memory cpu 
+modules-left = wired wifi music
+modules-center = 
+modules-right = weather memory cpu 
 
 underline-size=4
 underline-color=#00f
@@ -230,6 +230,16 @@ format-background=${colors.dcyan}
 [module/volume]
 type = internal/volume
 
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+master-mixer = Master
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+
+headphone-id = 16
+
 label-volume = %percentage%%
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
@@ -239,6 +249,9 @@ format-volume-underline = ${colors.orange}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
 
 label-muted = 
 format-muted-padding = 1
@@ -360,6 +373,21 @@ format-padding=1;
 format-background=${colors.dpurple}
 format-underline=${colors.purple}
 label=%output%
+
+;-------音乐-------
+[module/music]
+type=custom/script
+exec=$HOME/.config/polybar/music
+interval=1
+format=<label>
+format-padding=1;
+format-background=${colors.dorange}
+format-underline=${colors.orange}
+label=%output%
+
+click-middle=mocp -p
+click-left=mocp -f
+click-right=mocp -r
 
 ;-------颜色--------
 [colors]
