@@ -11,6 +11,7 @@ format='json'
 
 get_url=api_url+api_key+features+settings+'/q'+query+'.'+format
 
+
 #获取网页
 html = urllib.request.urlopen(get_url)
 #获取json表单
@@ -25,6 +26,6 @@ temp=conditions['temp_c']
 weather=conditions['weather']
 humidity=conditions['relative_humidity']
 
-print(' 成都','天气:',weather,'温度:',temp,'°C','湿度:',humidity)
+print(' 成都','天气:'+weather,'温度:'+str(temp)+'°C','湿度:'+str(humidity))
 
 html.close()
