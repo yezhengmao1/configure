@@ -36,6 +36,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dunst
+exec --no-startup-id mocp
 exec --no-startup-id xcompmgr -c -f -n
 exec --no-startup-id xrandr --output HDMI-1 --left-of eDP-1
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
