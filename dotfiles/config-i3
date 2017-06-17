@@ -118,8 +118,8 @@ focus_follows_mouse no
 for_window [class="Minecraft"] floating enable
 for_window [class="lxappearance"] floating enable
 for_window [title="外观"] floating enable
-for_window [title="MOC"] floating enable
-for_window [title="ncmpcpp"] floating enable
+for_window [class="MOC"] floating enable
+for_window [class="ncmpcpp"] floating enable
 
 ### i3-gaps窗口间距　###
 gaps inner 10
