@@ -89,7 +89,7 @@ foreground = ${colors.foreground}
 
 tray-position = none 
 
-modules-left = wired wifi music
+modules-left = wired wifi mpd 
 modules-center = 
 modules-right = weather memory cpu 
 
@@ -267,7 +267,7 @@ format=<label> <bar-used>
 label =  
 format-padding = 1
 bar-used-indicator =
-bar-used-width = 20
+bar-used-width = 10
 bar-used-foreground-0 = #55aa55
 bar-used-foreground-1 = #557755
 bar-used-foreground-2 = #f5a70a
@@ -388,6 +388,32 @@ label=%output%
 click-middle=mocp -p
 click-left=mocp -f
 click-right=mocp -r
+
+;-------ncmpcpp----
+[module/mpd]
+type=internal/mpd
+interval=1
+
+format-online=<icon-prev> <icon-play> <icon-pause> <icon-next> <label-song> <label-time>
+format-offline=<label-offline>
+
+format-online-padding=1
+format-online-background=${colors.dorange}
+format-online-underline=${colors.orange}
+
+format-offline-padding=1
+format-offline-background=${colors.dorange}
+format-offline-underline=${colors.orange}
+
+label-song = %title% - %artist% 
+label-time = %elapsed%/%total%
+label-offline =  无播放歌曲
+
+icon-play =  
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
 
 ;-------颜色--------
 [colors]
