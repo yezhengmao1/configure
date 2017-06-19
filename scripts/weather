@@ -11,21 +11,19 @@ format='json'
 
 get_url=api_url+api_key+features+settings+'/q'+query+'.'+format
 
-
 #获取网页
-html = urllib.request.urlopen(get_url)
-#获取json表单
-json_string = html.read()
-parsed_json = json.loads(json_string)
+try:
+    html = urllib.request.urlopen(get_url)
+    #获取json表单
+    json_string = html.read()
+    parsed_json = json.loads(json_string)
 
-location=parsed_json['location']
-conditions=parsed_json['current_observation']
+    conditions=parsed_json['current_observation']
 
-city=location['city']
-temp=conditions['temp_c']
-weather=conditions['weather']
-humidity=conditions['relative_humidity']
-
-print(' 成都','天气:'+weather,'温度:'+str(temp)+'°C','湿度:'+str(humidity))
-
-html.close()
+    temp=conditions['temp_c']
+    weather=conditions['weather']
+    humidity=conditions['relative_humidity']
+    print(' 成都','天气:'+weather,'温度:'+str(temp)+'°C','湿度:'+str(humidity))
+    html.close()
+except:
+    print(' 未连接网络,无法获取天气情况')
