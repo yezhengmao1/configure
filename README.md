@@ -11,18 +11,20 @@
 
     launch.sh           -> polybar启动文件
     weather             -> 天气获取
+    music               -> mocp信息获取
 	
  ~/dotfiles -> 配置文件夹 
 
    	config-i3         ->    i3wm配置文件  
-	config-awesome    ->    awesome配置文件
+    config-dunstrc    ->    dunstrc配置文件
 	config-zsh        ->    zsh配置文件(*使用ohmyzsh)
-	config-urxvt      ->    urxvt配置文件
+    config-Xresources ->    XResourves配置文件
+    config-polybar    ->    polybar配置文件
 	config-vim        ->    vim配置文件  
+    config-ncmpcpp    ->    ncmpcpp配置文件
 	solarized.vim     ->    vim-solarized配色文件  
     gruvbox.vim       ->    vim-gruvbox配色文件
 
- 	
 vim 可选插件 
 
 	vundle                       ->    插件管理
