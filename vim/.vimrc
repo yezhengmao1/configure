@@ -12,7 +12,9 @@ set shiftwidth=4
 set expandtab
 " 显示Tab键
 set list
-set listchars=tab:▸-
+set listchars=tab:▸-,space:·
+" 搜索高亮
+set hlsearch
 
 " 状态栏设置
 " f - 文件名字
@@ -68,8 +70,18 @@ command InsertFunctionInfo :call InsertFunctionInfo()<CR>
 " NERDTree - 文件目录
 " 打开关闭快捷键
 nnoremap <C-t> :NERDTreeToggle<CR>
+let NERDChristmasTree=0
+let NERDTreeIgnore=['\.swp$']
+let NERDTreeWinPos='right'
 
 " YouCompleteMe - 自动补全 
 " 关闭诊断高亮
+" 关闭预览窗口
+" 候选字触发:2
+set completeopt=menu,menuone
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_min_num_identifier_candidate_chars = 2
+
+set signcolumn=yes
