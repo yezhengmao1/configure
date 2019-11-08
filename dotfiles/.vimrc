@@ -1,8 +1,25 @@
 " pathogen - 自动加载插件
 execute pathogen#infect()
 syntax on
+syntax enable
 filetype plugin indent on
 
+" Leader键盘
+let mapleader=";"
+""""""""""""""""""
+"   快捷键设定   "
+""""""""""""""""""
+nnoremap <Leader>5 %
+
+""""""""""""""""""
+"   常用设置     "
+""""""""""""""""""
+" 回退键模式 - 非vi兼容
+set backspace=2
+" 禁止折行
+set nowrap
+" 关闭兼容模式
+set nocompatible
 " 开启行号
 set number
 " 设置空格
@@ -15,6 +32,14 @@ set list
 set listchars=tab:▸-,space:·
 " 搜索高亮
 set hlsearch
+" 增量搜索
+set incsearch
+" 搜索时大小写不敏感
+set ignorecase
+" 高亮显示当前行
+set cursorline
+" 高亮显示当前列
+hi CursorColumn ctermbg=NONE ctermfg=yellow
 
 " 状态栏设置
 " f - 文件名字
@@ -29,50 +54,24 @@ set statusline=
 set statusline+=%f\ %r%m
 set statusline+=%=
 set statusline+=\ L\:%4l\/%-4L\ C\:%-3c
-set statusline+=\ \[%{&fileformat}\]\ >
+set statusline+=\ \[%{&fileformat}\]\ - 
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-
-
-""""""""""""""""
-"   脚本相关   "
-""""""""""""""""
-function! InsertFileInfo()
-    call append(0, '/*')
-    call append(1, ' * File:            ' . expand('%'))
-    call append(2, ' * Description:     ')
-    call append(3, ' * Author:          Pipapa')
-    call append(4, ' * Email:           yezhengmaolove@gmail.com')
-    call append(5, ' * Date:            ' . strftime('%Y-%m-%d %H:%M:%S'))
-    call append(6, ' * License:         GPL')
-    call append(7, ' * */')
-    normal 3gg$
-endfunction
-
-function! InsertFunctionInfo()
-    let l = line('.')
-    call append(l,   '/*')
-    call append(l+1, ' * Function:        ')
-    call append(l+2, ' * Description:     ')
-    call append(l+3, ' * Input:     ')
-    call append(l+4, ' * Return:    ')
-    call append(l+5, ' * Note:      ')
-    call append(l+6, ' * Sample:    ')
-    call append(l+7, ' * */')
-endfunction
-
-command InsertFileInfo :call InsertFileInfo()<CR>
-command InsertFunctionInfo :call InsertFunctionInfo()<CR>
 
 """"""""""""""""
 "   插件配置   "
 """"""""""""""""
-
 " NERDTree - 文件目录
 " 打开关闭快捷键
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI=1
 let NERDChristmasTree=0
 let NERDTreeIgnore=['\.swp$']
 let NERDTreeWinPos='right'
+
+" Tagbar - tag标签
+let g:tagbar_vertical = 25
+let g:tagbar_compact = 1
+nnoremap <C-f> :TagbarToggle<CR>
 
 " YouCompleteMe - 自动补全 
 " 关闭诊断高亮
@@ -84,4 +83,6 @@ let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_min_num_identifier_candidate_chars = 2
 
+" vim-gitgutter - 文件比较插件
 set signcolumn=yes
+set updatetime=100
