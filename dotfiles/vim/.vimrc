@@ -65,7 +65,7 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDChristmasTree=0
-let NERDTreeIgnore=['\.swp$']
+let NERDTreeIgnore=['\.swp$', '\.o$', '\.gcno$', '\.gcda$']
 let NERDTreeWinPos='right'
 
 " Tagbar - tag标签
@@ -86,3 +86,6 @@ let g:ycm_min_num_identifier_candidate_chars = 2
 " vim-gitgutter - 文件比较插件
 set signcolumn=yes
 set updatetime=100
+
+" vim-interestingwords - 配色设置
+let g:interestingWordsRandomiseColors = 1
