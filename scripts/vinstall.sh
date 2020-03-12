@@ -45,8 +45,8 @@ Install() {
 
     echo 'install plugin done'
     echo 'install configuration'
-    cp ./../dotfiles/vim/.vimrc ${HOME}/.vimrc
-    cp ./../dotfiles/vim/plugin/p.vim ${VIM_PATH}/plugin/p.vim
+    cp dotfiles/vim/.vimrc ${HOME}/.vimrc
+    cp dotfiles/vim/plugin/p.vim ${VIM_PATH}/plugin/p.vim
     echo 'install configuration done'
 }
 
