@@ -9,7 +9,7 @@ CURSORWORD=https://github.com/itchyny/vim-cursorword
 NERDTREE=https://github.com/preservim/nerdtree
 GITGUTTER=https://github.com/airblade/vim-gitgutter
 TAGBAR=https://github.com/majutsushi/tagbar
-MAKR=https://github.com/inkarkat/vim-mark
+INTERESTINGWORDS=https://github.com/lfv89/vim-interestingwords
 
 PLUGIN_NAMES=(
     "rainbow" 
@@ -17,7 +17,7 @@ PLUGIN_NAMES=(
     "nerdtree"
     "gitgutter"
     "tagbar"
-    "mark"
+    "interestingwords"
 )
 
 PLUGINS=(
@@ -26,7 +26,7 @@ PLUGINS=(
     $NERDTREE
     $GITGUTTER
     $TAGBAR
-    $MARK
+    $INTERESTINGWORDS
 )
 
 # install
@@ -40,8 +40,9 @@ Install() {
     
     for i in ${!PLUGINS[@]}; do
         echo 'install '${PLUGIN_NAMES[$i]}
-        git clone ${PLUGINS[$i]} ${VIM_PATH}/bundle/${PLUGIN_NAMES[$i]} > /dev/null 2>&1
+        git clone ${PLUGINS[$i]} ${VIM_PATH}/bundle/${PLUGIN_NAMES[$i]} > /dev/null 2>&1 &
     done
+    wait
 
     echo 'install plugin done'
     echo 'install configuration'
