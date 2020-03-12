@@ -34,7 +34,7 @@ PLUGINS=(
 Install() {
     # install pathogen
     # 安装vim插件管理
-    echo '\033[33minstall \033[0mpathogen'
+    echo -e '\033[33minstall \033[0mpathogen'
     mkdir -p ${VIM_PATH}/autoload ${VIM_PATH}/bundle ${VIM_PATH}/plugin
     git clone ${PATHOGEN}  ${CACHE_PATH}/pathogen > /dev/null 2>&1 &
     for i in ${!PLUGINS[@]}; do
