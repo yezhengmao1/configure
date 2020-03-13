@@ -4,13 +4,6 @@ syntax on
 syntax enable
 filetype plugin indent on
 
-" Leader键盘
-let mapleader=";"
-""""""""""""""""""
-"   快捷键设定   "
-""""""""""""""""""
-nnoremap <Leader>5 %
-
 """"""""""""""""""
 "   常用设置     "
 """"""""""""""""""
