@@ -10,6 +10,8 @@ NERDTREE=https://github.com/preservim/nerdtree
 GITGUTTER=https://github.com/airblade/vim-gitgutter
 TAGBAR=https://github.com/majutsushi/tagbar
 INTERESTINGWORDS=https://github.com/lfv89/vim-interestingwords
+SIGNATURE=https://github.com/kshenoy/vim-signature
+YCM=https://github.com/ycm-core/YouCompleteMe
 
 PLUGIN_NAMES=(
     "rainbow" 
@@ -18,6 +20,8 @@ PLUGIN_NAMES=(
     "gitgutter"
     "tagbar"
     "interestingwords"
+    "signature"
+    "youcompleteme"
 )
 
 PLUGINS=(
@@ -27,6 +31,8 @@ PLUGINS=(
     $GITGUTTER
     $TAGBAR
     $INTERESTINGWORDS
+    $SIGNATURE
+    $YCM
 )
 
 # install
@@ -43,7 +49,12 @@ Install() {
     done
     wait
     cp ${CACHE_PATH}/pathogen/autoload/pathogen.vim ${VIM_PATH}/autoload/pathogen.vim
-    echo -e '\033[32m[success]install plugin done!\033[0m'
+    echo -e '\033[32m[success]download plugin done!\033[0m'
+    echo -e '\033[33mcompile\033[0m YouCompleteMe'
+    cd ${VIM_PATH}/bundle/youcompleteme
+    git submodule update --init --recursive
+    python3 install.py --clangd-completer
+    cd -
     echo -e '\033[33minstall \033[0mconfiguration'
     cp dotfiles/vim/.vimrc ${HOME}/.vimrc
     cp dotfiles/vim/plugin/p.vim ${VIM_PATH}/plugin/p.vim
