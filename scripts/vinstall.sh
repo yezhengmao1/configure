@@ -51,6 +51,9 @@ Install() {
     cp ${CACHE_PATH}/pathogen/autoload/pathogen.vim ${VIM_PATH}/autoload/pathogen.vim
     echo -e '\033[32m[success]download plugin done!\033[0m'
     echo -e '\033[33mcompile\033[0m YouCompleteMe'
+    if [ "$(uname)" == "Darwin" ]; then
+        brew install macvim;
+    fi
     cd ${VIM_PATH}/bundle/youcompleteme
     git submodule update --init --recursive
     python3 install.py --clangd-completer
