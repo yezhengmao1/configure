@@ -4,64 +4,51 @@ VIM_PATH=${HOME}/.vim
 CACHE_PATH=/tmp
 
 PATHOGEN=https://github.com/tpope/vim-pathogen
-RAINBOW=https://github.com/luochen1990/rainbow.git
-CURSORWORD=https://github.com/itchyny/vim-cursorword
-NERDTREE=https://github.com/preservim/nerdtree
-SIGNIFY=https://github.com/mhinz/vim-signify
-TAGBAR=https://github.com/majutsushi/tagbar
-INTERESTINGWORDS=https://github.com/lfv89/vim-interestingwords
-SIGNATURE=https://github.com/kshenoy/vim-signature
-YCM=https://github.com/ycm-core/YouCompleteMe
 
-PLUGIN_NAMES=(
-    "rainbow" 
-    "cursorword"
-    "nerdtree"
-    "signify"
-    "tagbar"
-    "interestingwords"
-    "signature"
-    "youcompleteme"
+declare -A PLUGINS=(
+    ["rainbow"]="https://github.com/luochen1990/rainbow.git"
+    ["cursorword"]="https://github.com/itchyny/vim-cursorword"
+    ["nerdtree"]="https://github.com/preservim/nerdtree"
+    ["signify"]="https://github.com/mhinz/vim-signify"
+    ["tagbar"]="https://github.com/majutsushi/tagbar"
+    ["interestingwords"]="https://github.com/lfv89/vim-interestingwords"
+    ["signature"]="https://github.com/kshenoy/vim-signature"
+    ["youcompleteme"]="https://github.com/ycm-core/YouCompleteMe"
 )
 
-PLUGINS=(
-    $RAINBOW 
-    $CURSORWORD
-    $NERDTREE
-    $SIGNIFY
-    $TAGBAR
-    $INTERESTINGWORDS
-    $SIGNATURE
-    $YCM
-)
-
-# install
 # 安装
 Install() {
-    # install pathogen
-    # 安装vim插件管理
+    # 安装 vim 插件管理 pathogen
     echo -e '\033[33minstall \033[0mpathogen'
     mkdir -p ${VIM_PATH}/autoload ${VIM_PATH}/bundle ${VIM_PATH}/plugin
     git clone ${PATHOGEN}  ${CACHE_PATH}/pathogen > /dev/null 2>&1 &
+    cp ${CACHE_PATH}/pathogen/autoload/pathogen.vim ${VIM_PATH}/autoload/pathogen.vim
+
+    # 多线程安装插件
     for i in ${!PLUGINS[@]}; do
-        echo -e '\033[33minstall \033[0m'${PLUGIN_NAMES[$i]}
-        git clone ${PLUGINS[$i]} ${VIM_PATH}/bundle/${PLUGIN_NAMES[$i]} > /dev/null 2>&1 &
+        echo -e '\033[33minstall \033[0m'$i
+        if [ ! -d ${VIM_PATH}/bundle/$i ]; then
+            git clone ${PLUGINS[$i]} ${VIM_PATH}/bundle/${PLUGIN_NAMES[$i]} > /dev/null 2>&1 &
+        fi
     done
     wait
-    cp ${CACHE_PATH}/pathogen/autoload/pathogen.vim ${VIM_PATH}/autoload/pathogen.vim
-    echo -e '\033[32m[success]download plugin done!\033[0m'
+    echo -e '\033[32m[success] download plugins done!\033[0m'
+
+    # 安装 youcompleteme 插件
     echo -e '\033[33mcompile\033[0m YouCompleteMe'
     if [ "$(uname)" == "Darwin" ]; then
         brew install macvim;
     fi
     cd ${VIM_PATH}/bundle/youcompleteme
-    git submodule update --init --recursive
-    python3 install.py --clangd-completer
+    git submodule update --init --recursive > /dev/null 2>&1
+    python3 install.py --clangd-completer > /dev/null 2>&1
     cd -
-    echo -e '\033[33minstall \033[0mconfiguration'
-    cp dotfiles/vim/.vimrc ${HOME}/.vimrc
+
+    # 安装配置文件
+    echo -e '\033[33minstall \033[0mconfiguration file'
+    cp dotfiles/vim/vimrc ${HOME}/.vimrc
     cp dotfiles/vim/plugin/p.vim ${VIM_PATH}/plugin/p.vim
-    echo -e '\033[32m[success]install configuration done!\033[0m'
+    echo -e '\033[32m[success] install configuration file done!\033[0m'
 }
 
 # uninstall
@@ -73,8 +60,8 @@ UnInstall() {
     rm -rf ${VIM_PATH}/bundle
     echo 'uninstall plugin'
     rm -rf ${VIM_PATH}/plugin
-    echo 'uninstall profile'
-    rm ${HOME}/.vimrc
+    echo 'uninstall configure file'
+    rm -rf ${HOME}/.vimrc
 }
 
 case $1 in
