@@ -33,6 +33,8 @@ set ignorecase
 set cursorline
 " 高亮显示当前列
 hi CursorColumn ctermbg=NONE ctermfg=yellow
+" tag设置
+set tags=./.tags;,.tags
 
 " 状态栏设置
 " f - 文件名字
@@ -55,7 +57,6 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 """"""""""""""""
 " NERDTree - 文件目录
 " 打开关闭快捷键
-nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDChristmasTree=0
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.gcno$', '\.gcda$']
@@ -64,7 +65,6 @@ let NERDTreeWinPos='right'
 " Tagbar - tag标签
 let g:tagbar_vertical = 25
 let g:tagbar_compact = 1
-nnoremap <C-f> :TagbarToggle<CR>
 
 " YouCompleteMe - 自动补全 
 " 关闭诊断高亮
@@ -76,8 +76,7 @@ let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_min_num_identifier_candidate_chars = 2
 
-" vim-gitgutter - 文件比较插件
-set signcolumn=yes
+" vim-signify - 文件比较插件
 set updatetime=100
 
 " vim-interestingwords - 配色设置

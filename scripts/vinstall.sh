@@ -7,7 +7,7 @@ PATHOGEN=https://github.com/tpope/vim-pathogen
 RAINBOW=https://github.com/luochen1990/rainbow.git
 CURSORWORD=https://github.com/itchyny/vim-cursorword
 NERDTREE=https://github.com/preservim/nerdtree
-GITGUTTER=https://github.com/airblade/vim-gitgutter
+SIGNIFY=https://github.com/mhinz/vim-signify
 TAGBAR=https://github.com/majutsushi/tagbar
 INTERESTINGWORDS=https://github.com/lfv89/vim-interestingwords
 SIGNATURE=https://github.com/kshenoy/vim-signature
@@ -17,7 +17,7 @@ PLUGIN_NAMES=(
     "rainbow" 
     "cursorword"
     "nerdtree"
-    "gitgutter"
+    "signify"
     "tagbar"
     "interestingwords"
     "signature"
@@ -28,7 +28,7 @@ PLUGINS=(
     $RAINBOW 
     $CURSORWORD
     $NERDTREE
-    $GITGUTTER
+    $SIGNIFY
     $TAGBAR
     $INTERESTINGWORDS
     $SIGNATURE
