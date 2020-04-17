@@ -5,15 +5,15 @@ CACHE_PATH=/tmp
 
 PATHOGEN=https://github.com/tpope/vim-pathogen
 
-declare -A PLUGINS=(
-    ["rainbow"]="https://github.com/luochen1990/rainbow.git"
-    ["cursorword"]="https://github.com/itchyny/vim-cursorword"
-    ["nerdtree"]="https://github.com/preservim/nerdtree"
-    ["signify"]="https://github.com/mhinz/vim-signify"
-    ["tagbar"]="https://github.com/majutsushi/tagbar"
-    ["interestingwords"]="https://github.com/lfv89/vim-interestingwords"
-    ["signature"]="https://github.com/kshenoy/vim-signature"
-    ["youcompleteme"]="https://github.com/ycm-core/YouCompleteMe"
+PLUGINS=(
+    "rainbow,https://github.com/luochen1990/rainbow.git"
+    "cursorword,https://github.com/itchyny/vim-cursorword"
+    "nerdtree,https://github.com/preservim/nerdtree"
+    "signify,https://github.com/mhinz/vim-signify"
+    "tagbar,https://github.com/majutsushi/tagbar"
+    "interestingwords,https://github.com/lfv89/vim-interestingwords"
+    "signature,https://github.com/kshenoy/vim-signature"
+    "youcompleteme,https://github.com/ycm-core/YouCompleteMe"
 )
 
 # 安装
@@ -25,10 +25,12 @@ Install() {
     cp ${CACHE_PATH}/pathogen/autoload/pathogen.vim ${VIM_PATH}/autoload/pathogen.vim
 
     # 多线程安装插件
-    for i in ${!PLUGINS[@]}; do
-        echo -e '\033[33minstall \033[0m'$i
-        if [ ! -d ${VIM_PATH}/bundle/$i ]; then
-            git clone ${PLUGINS[$i]} ${VIM_PATH}/bundle/${PLUGIN_NAMES[$i]} > /dev/null 2>&1 &
+    for i in ${PLUGINS[@]}; do
+	name=`echo ${i} | awk -F ',' '{print $1}'`
+	path=`echo ${i} | awk -F ',' '{print $2}'`
+        echo -e '\033[33minstall \033[0m'$name
+        if [ ! -d ${VIM_PATH}/bundle/$name ]; then
+            git clone ${path} ${VIM_PATH}/bundle/${name} > /dev/null 2>&1 &
         fi
     done
     wait
@@ -37,7 +39,10 @@ Install() {
     # 安装 youcompleteme 插件
     echo -e '\033[33mcompile\033[0m YouCompleteMe'
     if [ "$(uname)" == "Darwin" ]; then
-        brew install macvim;
+	echo brew list | grep macvim
+        if [ $? -eq 0 ]; then
+	    brew install macvim;
+	fi
     fi
     cd ${VIM_PATH}/bundle/youcompleteme
     git submodule update --init --recursive > /dev/null 2>&1
