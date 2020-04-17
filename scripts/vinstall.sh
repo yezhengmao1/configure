@@ -6,7 +6,7 @@ CACHE_PATH=/tmp
 PATHOGEN=https://github.com/tpope/vim-pathogen
 
 PLUGINS=(
-    "rainbow,https://github.com/luochen1990/rainbow.git"
+    "rainbow,https://github.com/luochen1990/rainbow"
     "cursorword,https://github.com/itchyny/vim-cursorword"
     "nerdtree,https://github.com/preservim/nerdtree"
     "signify,https://github.com/mhinz/vim-signify"
@@ -19,25 +19,27 @@ PLUGINS=(
 # 安装
 Install() {
     # 安装 vim 插件管理 pathogen
-    echo -e '\033[33minstall \033[0mpathogen'
+    printf '\033[33m[install]\033[0m %-17s %s\n' pathogen $PATHOGEN
     mkdir -p ${VIM_PATH}/autoload ${VIM_PATH}/bundle ${VIM_PATH}/plugin
     git clone ${PATHOGEN}  ${CACHE_PATH}/pathogen > /dev/null 2>&1 &
     cp ${CACHE_PATH}/pathogen/autoload/pathogen.vim ${VIM_PATH}/autoload/pathogen.vim
+    printf "\033[32m[success]\033[0m install plugin pathogen done!\n"
 
     # 多线程安装插件
     for i in ${PLUGINS[@]}; do
-	name=`echo ${i} | awk -F ',' '{print $1}'`
-	path=`echo ${i} | awk -F ',' '{print $2}'`
-        echo -e '\033[33minstall \033[0m'$name
+        name=`echo ${i} | awk -F ',' '{print $1}'`
+        path=`echo ${i} | awk -F ',' '{print $2}'`
         if [ ! -d ${VIM_PATH}/bundle/$name ]; then
-            git clone ${path} ${VIM_PATH}/bundle/${name} > /dev/null 2>&1 &
+            printf "\033[33m[install]\033[0m %-17s %s\n" $name $path
+            git clone ${path} ${VIM_PATH}/bundle/${name} > /dev/null 2>&1 && printf "\033[32m[success]\033[0m download plugin %s done!\n" $name &
+        else
+            printf "\033[32m[exist]  \033[0m %-17s %s\n" $name $path
         fi
     done
     wait
-    echo -e '\033[32m[success] download plugins done!\033[0m'
 
     # 安装 youcompleteme 插件
-    echo -e '\033[33mcompile\033[0m YouCompleteMe'
+    echo -e '\033[33m[compile]\033[0m YouCompleteMe'
     if [ "$(uname)" == "Darwin" ]; then
 	echo brew list | grep macvim
         if [ $? -eq 0 ]; then
@@ -59,13 +61,13 @@ Install() {
 # uninstall
 # 卸载
 UnInstall() {
-    echo 'uninstall pathogen'
+    echo -e '\033[91m[uninstall]\033[0m pathogen'
     rm -rf ${VIM_PATH}/autoload
-    echo 'uninstall bundle'
+    echo -e '\033[91m[uninstall]\033[0m bundle'
     rm -rf ${VIM_PATH}/bundle
-    echo 'uninstall plugin'
+    echo -e '\033[91m[uninstall]\033[0m plugin'
     rm -rf ${VIM_PATH}/plugin
-    echo 'uninstall configure file'
+    echo -e '\033[91m[uninstall]\033[0m configure'
     rm -rf ${HOME}/.vimrc
 }
 
