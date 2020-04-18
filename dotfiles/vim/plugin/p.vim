@@ -4,6 +4,8 @@ let mapleader=";"
 nnoremap <C-f> :TagbarToggle<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+nnoremap <C-d> :SignifyDiff<CR>
+
 " tab标签切换快捷键
 nnoremap <Leader>1 1gt
 nnoremap <Leader>2 2gt

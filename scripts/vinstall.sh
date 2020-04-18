@@ -14,6 +14,7 @@ PLUGINS=(
     "interestingwords,https://github.com/lfv89/vim-interestingwords"
     "signature,https://github.com/kshenoy/vim-signature"
     "youcompleteme,https://github.com/ycm-core/YouCompleteMe"
+    "gutentags,https://github.com/ludovicchabant/vim-gutentags"
 )
 
 # 安装

@@ -33,8 +33,6 @@ set ignorecase
 set cursorline
 " 高亮显示当前列
 hi CursorColumn ctermbg=NONE ctermfg=yellow
-" tag设置
-set tags=./.tags;,.tags
 
 " 状态栏设置
 " f - 文件名字
@@ -49,35 +47,42 @@ set statusline=
 set statusline+=%f\ %r%m
 set statusline+=%=
 set statusline+=\ L\:%4l\/%-4L\ C\:%-3c
-set statusline+=\ \[%{&fileformat}\]\ - 
+set statusline+=\ \[%{&fileformat}\]\ -
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ %{gutentags#statusline()}
 
 """"""""""""""""
 "   插件配置   "
 """"""""""""""""
 " NERDTree - 文件目录
-" 打开关闭快捷键
 let NERDTreeMinimalUI=1
 let NERDChristmasTree=0
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.gcno$', '\.gcda$']
 let NERDTreeWinPos='right'
 
 " Tagbar - tag标签
-let g:tagbar_vertical = 25
-let g:tagbar_compact = 1
+let g:tagbar_left=1
+let g:tagbar_width=25
 
 " YouCompleteMe - 自动补全 
 " 关闭诊断高亮
-" 关闭预览窗口
-" 候选字触发:2
 set completeopt=menu,menuone
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_enable_diagnostic_highlighting = 0
+" 关闭预览窗口
 let g:ycm_add_preview_to_completeopt = 0
+" 候选字触发:2
 let g:ycm_min_num_identifier_candidate_chars = 2
 
 " vim-signify - 文件比较插件
 set updatetime=100
 
 " vim-interestingwords - 配色设置
-let g:interestingWordsRandomiseColors = 1
+let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
+
+" rainbow - 彩虹括号
+let g:rainbow_active = 1
+
+" vim-gutentags - 自动生成 tag
+let g:gutentags_add_default_project_roots = 0
+let g:gutentags_project_root = ['Makefile']
