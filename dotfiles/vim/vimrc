@@ -16,9 +16,9 @@ set nocompatible
 " 开启行号
 set number
 " 设置空格
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 " 显示Tab键
 set list
