@@ -1,47 +1,38 @@
-" pathogen - 自动加载插件
+" pathogen插件启动
 execute pathogen#infect()
 syntax on
 syntax enable
 filetype plugin indent on
-
 """"""""""""""""""
-"   常用设置     "
+"    基本配置    "
 """"""""""""""""""
-" 回退键模式 - 非vi兼容
+" 文件编码
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
 set backspace=2
-" 禁止折行
 set nowrap
-" 关闭兼容模式
 set nocompatible
-" 开启行号
+" 行号显示
 set number
-" 设置空格
+" tab键设置为空格
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-" 显示Tab键
+" 特殊字符显示
 set list
 set listchars=tab:▸-,space:·
-" 搜索高亮
+" 搜索高亮/增量/忽略大小写
 set hlsearch
-" 增量搜索
 set incsearch
-" 搜索时大小写不敏感
 set ignorecase
-" 高亮显示当前行
+" 高亮当前行
 set cursorline
-" 高亮显示当前列
 hi CursorColumn ctermbg=NONE ctermfg=yellow
-
-" 状态栏设置
-" f - 文件名字
-" r - 只读[RO]
-" m - 是否修改[+]
-" l - 行号 L - 总行
-" c - 列号
-" fileformat - 文件类型 
-" fileencoding - 编码类型
+" 相对行号
+set relativenumber
+" 状态栏
 set laststatus=2
 set statusline=
 set statusline+=%f\ %r%m
@@ -49,40 +40,25 @@ set statusline+=%=
 set statusline+=\ L\:%4l\/%-4L\ C\:%-3c
 set statusline+=\ \[%{&fileformat}\]\ -
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\ %{gutentags#statusline()}
 
 """"""""""""""""
 "   插件配置   "
 """"""""""""""""
-" NERDTree - 文件目录
+" nerdtree
 let NERDTreeMinimalUI=1
 let NERDChristmasTree=0
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.gcno$', '\.gcda$']
 let NERDTreeWinPos='right'
-
-" Tagbar - tag标签
+" tagbar
 let g:tagbar_left=1
-let g:tagbar_width=25
-
-" YouCompleteMe - 自动补全 
-" 关闭诊断高亮
-set completeopt=menu,menuone
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_enable_diagnostic_highlighting = 0
-" 关闭预览窗口
-let g:ycm_add_preview_to_completeopt = 0
-" 候选字触发:2
-let g:ycm_min_num_identifier_candidate_chars = 2
-
-" vim-signify - 文件比较插件
+let g:tagbar_width=35
+" neocomplate
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+" 
 set updatetime=100
 
-" vim-interestingwords - 配色设置
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
-
-" rainbow - 彩虹括号
 let g:rainbow_active = 1
-
-" vim-gutentags - 自动生成 tag
-let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['Makefile']

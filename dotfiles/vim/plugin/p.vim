@@ -1,11 +1,14 @@
 " 快捷键映射
 let mapleader=";"
-
-nnoremap <C-f> :TagbarToggle<CR>
+" 快捷键设置
 nnoremap <C-n> :NERDTreeToggle<CR>
-
-nnoremap <C-d> :SignifyDiff<CR>
-
+nnoremap <C-f> :TagbarToggle<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-l> :BTags<CR>
+nnoremap <C-o> :Tags<CR>
+nnoremap <C-g> yw:cs find s <C-r>"<CR>
+nnoremap <C-c> yw:cs find c <C-r>"<CR>
+nnoremap <C-d> yw:cs find d <C-r>"<CR>
 " tab标签切换快捷键
 nnoremap <Leader>1 1gt
 nnoremap <Leader>2 2gt
@@ -16,12 +19,5 @@ nnoremap <Leader>6 6gt
 nnoremap <Leader>7 7gt
 nnoremap <Leader>8 8gt
 nnoremap <Leader>9 9gt
-
-nnoremap <Leader>[ {zz
-nnoremap <Leader>] }zz
-nnoremap <Leader>, (zz
-nnoremap <Leader>. )zz
-" 打开时自动开启NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
 " 关闭时自动关闭NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
