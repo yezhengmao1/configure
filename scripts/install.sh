@@ -13,7 +13,7 @@ SOFT=(
     #######################
     "pyenv,https://github.com/pyenv/pyenv"
     "fzf,https://github.com/junegunn/fzf"
-    "Python-3.7.9.tgz,https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz"
+    "Python-3.7.9.tar.xz,https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
 )
 
 VIMPLUGINS=(
