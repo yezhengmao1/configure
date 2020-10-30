@@ -14,6 +14,8 @@ SOFT=(
     "pyenv,https://github.com/pyenv/pyenv"
     "fzf,https://github.com/junegunn/fzf"
     "Python-3.7.9.tar.xz,https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
+    "vim,https://github.com/vim/vim"
+    "tmux,https://github.com/tmux/tmux"
 )
 
 VIMPLUGINS=(
@@ -43,13 +45,13 @@ GitDownload() {
     url=$1
     path=$2
     if [ -d $path ]; then
-        printf "${YELLOW}DONE${NC} clone ${url}\n"
+        printf "${YELLOW}DONE${NC} ${url}\n"
         return
     fi
     if ! git clone --recursive $url $path > /dev/null 2>&1; then
-        printf "${RED}FAIL${NC} clone ${url}\n"
+        printf "${RED}FAIL${NC} ${url}\n"
     else
-        printf "${GREEN}SUCC${NC} clone ${url}\n"
+        printf "${GREEN}SUCC${NC} ${url}\n"
     fi
 }
 
@@ -58,13 +60,13 @@ WgetDownload() {
     url=$1
     file=$2
     if [ -f $file ]; then
-        printf "${YELLOW}DONE${NC} clone ${url}\n"
+        printf "${YELLOW}DONE${NC} ${url}\n"
         return
     fi
     if ! wget $url -O $file > /dev/null 2>&1; then
-        printf "${RED}FAIL${NC} clone ${url}\n"
+        printf "${RED}FAIL${NC} ${url}\n"
     else
-        printf "${GREEN}SUCC${NC} clone ${url}\n"
+        printf "${GREEN}SUCC${NC} ${url}\n"
     fi
 }
 
