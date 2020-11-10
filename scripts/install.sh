@@ -15,27 +15,33 @@ SOFT=(
     "fzf,https://github.com/junegunn/fzf"
     "Python-3.7.9.tar.xz,https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
     "vim,https://github.com/vim/vim"
-    "tmux,https://github.com/tmux/tmux"
 )
 
 VIMPLUGINS=(
     ##########################
     #   VIM插件 - 基础工具   #
     ##########################
-    "fzf.vim,https://github.com/junegunn/fzf.vim"
+    "pathogen,https://github.com/tpope/vim-pathogen"                        # 插件管理
+    "fzf.vim,https://github.com/junegunn/fzf.vim"                           # 搜索插件
     ##########################
     #   VIM插件 - 显示增强   #
     ##########################
     "nerdtree,https://github.com/preservim/nerdtree"                        # 文件树
-    "tagbar,https://github.com/majutsushi/tagbar"                           # 
+    "tagbar,https://github.com/majutsushi/tagbar"                           # 符号表
     "rainbow,https://github.com/luochen1990/rainbow"                        # 括号匹配
-    "cursorword,https://github.com/itchyny/vim-cursorword"                  #
-    "signify,https://github.com/mhinz/vim-signify"                          #
-    "interestingwords,https://github.com/lfv89/vim-interestingwords"        # 
+    "cursorword,https://github.com/itchyny/vim-cursorword"                  # 高亮当前单词
+    "signify,https://github.com/mhinz/vim-signify"                          # 显示修改
+    "interestingwords,https://github.com/lfv89/vim-interestingwords"        # 高亮标记单词
     ##########################
     #   VIM插件 - 编码增强   #
     ##########################
     "youcompleteme,https://github.com/ycm-core/YouCompleteMe"               # 代码补全
+)
+
+FILE=(
+    "vimrc,./dotifiles/vimrc"                                               # vim配置
+    "tmux.conf,./dotifile/tmux.conf"                                        # tmux配置
+    "p.vim,./dotifiles/p.vim"                                               # vim插件
 )
 
 PLUGINS=(${SOFT[@]} ${VIMPLUGINS[@]})

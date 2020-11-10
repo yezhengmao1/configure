@@ -3,9 +3,11 @@ execute pathogen#infect()
 syntax on
 syntax enable
 filetype plugin indent on
+
 """"""""""""""""""
 "    基本配置    "
 """"""""""""""""""
+
 " 文件编码
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
@@ -13,25 +15,32 @@ set encoding=utf-8
 set backspace=2
 set nowrap
 set nocompatible
+
 " 行号显示
 set number
+
 " tab键设置为空格
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
+
 " 特殊字符显示
 set list
 set listchars=tab:▸-,space:·
+
 " 搜索高亮/增量/忽略大小写
 set hlsearch
 set incsearch
 set ignorecase
+
 " 高亮当前行
 set cursorline
 hi CursorColumn ctermbg=NONE ctermfg=yellow
+
 " 相对行号
 set relativenumber
+
 " 状态栏
 set laststatus=2
 set statusline=
@@ -44,21 +53,20 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 """"""""""""""""
 "   插件配置   "
 """"""""""""""""
+
 " nerdtree
 let NERDTreeMinimalUI=1
 let NERDChristmasTree=0
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.gcno$', '\.gcda$']
 let NERDTreeWinPos='right'
+
 " tagbar
 let g:tagbar_left=1
 let g:tagbar_width=35
-" neocomplate
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+
 " 
 set updatetime=100
 
+"
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 let g:rainbow_active = 1
