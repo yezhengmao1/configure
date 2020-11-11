@@ -8,8 +8,8 @@ ENV PATH="/root/.pyenv/shims:/root/.pyenv/bin:$PATH" \
     PYENV_ROOT="/root/.pyenv" \
     LANG="en_US.UTF-8"
 
-RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.huaweicloud.com@g" /etc/apt/sources.list \
-    && sed -i "s@http://.*security.ubuntu.com@http://mirrors.huaweicloud.com@g" /etc/apt/sources.list \
+RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.tools.huawei.com@g" /etc/apt/sources.list \
+    && sed -i "s@http://.*security.ubuntu.com@http://mirrors.tools.huawei.com@g" /etc/apt/sources.list \
     && apt-get update \
     && DEBIAN_FRONTEND="noninteractive" TZ="Asia/Shanghai" \
         apt-get install -y --no-install-recommends \ 
@@ -47,7 +47,6 @@ RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.huaweicloud.com@g" /etc
     && mv /workspace/Python-3.7.9.tar.xz /root/.pyenv/cache/Python-3.7.9.tar.xz \
     && PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install -v 3.7.9 \
     && pyenv global 3.7.9 \
-    && yes | /workspace/fzf/install \
     && cd /workspace/vim \
     && ./configure \
         --enable-gui=no \

@@ -15,6 +15,7 @@ SOFT=(
     "fzf,https://github.com/junegunn/fzf"
     "Python-3.7.9.tar.xz,https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
     "vim,https://github.com/vim/vim"
+    "go1.15.4.linux-amd64.tar.gz,https://golang.org/dl/go1.15.4.linux-amd64.tar.gz"
 )
 
 VIMPLUGINS=(
@@ -87,6 +88,8 @@ DownloadAll() {
             WgetDownload $url $DIR/$name &
         fi
     done
+
+    cp ./dotfiles/* ./docker/download/
 
     wait
 }
