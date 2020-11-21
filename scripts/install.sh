@@ -12,10 +12,10 @@ SOFT=(
     #   系统 - 基础设施   #
     #######################
     "pyenv,https://github.com/pyenv/pyenv"
-    "fzf,https://github.com/junegunn/fzf"
-    "Python-3.7.9.tar.xz,https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
     "vim,https://github.com/vim/vim"
+    "Python-3.7.9.tar.xz,https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
     "go1.15.4.linux-amd64.tar.gz,https://golang.org/dl/go1.15.4.linux-amd64.tar.gz"
+    "fzf-0.24.3-linux_amd64.tar.gz,https://github.com/junegunn/fzf/releases/download/0.24.3/fzf-0.24.3-linux_amd64.tar.gz"
 )
 
 VIMPLUGINS=(
@@ -23,6 +23,7 @@ VIMPLUGINS=(
     #   VIM插件 - 基础工具   #
     ##########################
     "pathogen,https://github.com/tpope/vim-pathogen"                        # 插件管理
+    "fzf,https://github.com/junegunn/fzf"                                   # 搜索插件
     "fzf.vim,https://github.com/junegunn/fzf.vim"                           # 搜索插件
     ##########################
     #   VIM插件 - 显示增强   #
@@ -82,10 +83,10 @@ DownloadAll() {
     for i in ${PLUGINS[@]}; do
         name=`echo ${i} | awk -F ',' '{print $1}'`
         url=`echo ${i} | awk -F ',' '{print $2}'`
-        if [[ $url =~ "github" ]]; then
-            GitDownload $url $DIR/$name &
-        else
+        if [[ $url =~ ".tar" ]]; then
             WgetDownload $url $DIR/$name &
+        else
+            GitDownload $url $DIR/$name &
         fi
     done
 

@@ -5,8 +5,6 @@ let mapleader=";"
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :TagbarToggle<CR>
 nnoremap <C-p> :Files<CR>
-nnoremap <C-l> :BTags<CR>
-nnoremap <C-o> :Tags<CR>
 nnoremap <C-g> yw:cs find s <C-r>"<CR>
 nnoremap <C-c> yw:cs find c <C-r>"<CR>
 nnoremap <C-d> yw:cs find d <C-r>"<CR>
@@ -24,3 +22,8 @@ nnoremap <Leader>9 9gt
 
 " 关闭时自动关闭NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" 自动加载fzf文件列表
+if filereadable("filelist")
+    let $FZF_DEFAULT_COMMAND = 'cat filelist'
+endif

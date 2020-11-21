@@ -70,3 +70,8 @@ set updatetime=100
 "
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 let g:rainbow_active = 1
+
+" fzf.vim
+let g:fzf_buffers_jump = 1
+let g:fzf_preview_window = []
+let g:fzf_layout = { 'down': '~20%' }
