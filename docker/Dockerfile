@@ -16,6 +16,7 @@ RUN useradd -rm -d /root -s /bin/bash -g root -G sudo -u 1000 ide \
         apt-get install -y --no-install-recommends \ 
         build-essential \
         cmake \
+        ctags \
         gcc-8 \
         g++-8 \
         libssl-dev \
