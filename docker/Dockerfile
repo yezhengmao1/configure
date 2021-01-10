@@ -8,7 +8,7 @@ ENV PATH="/usr/local/go/bin:/root/.pyenv/shims:/root/.pyenv/bin:$PATH" \
     PYENV_ROOT="/root/.pyenv" \
     LANG="en_US.UTF-8"
 
-RUN useradd -rm -d /root -s /bin/bash -g root -G sudo -u 1000 ide \
+RUN useradd -r -d /root -s /bin/bash -g root -G sudo -u 1000 ide \
     && sed -i "s@http://.*archive.ubuntu.com@http://mirrors.huaweicloud.com@g" /etc/apt/sources.list \
     && sed -i "s@http://.*security.ubuntu.com@http://mirrors.huaweicloud.com@g" /etc/apt/sources.list \
     && apt-get update \
@@ -82,5 +82,5 @@ RUN useradd -rm -d /root -s /bin/bash -g root -G sudo -u 1000 ide \
     && mv /workspace/tmux.conf /root/.tmux.conf \
     && mv /workspace/p.vim /root/.vim/plugin/p.vim \
     && cd /root/.vim/bundle/youcompleteme \
-    && CXX="/usr/bin/g++-8" ./install.py --system-libclang --clang-completer \
+    && CXX="/usr/bin/g++-8" python3 ./install.py --system-libclang --clang-completer \
     && rm -rf /workspace
