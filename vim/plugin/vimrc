@@ -1,0 +1,55 @@
+" 插件加载
+execute pathogen#infect()
+syntax on
+syntax enable
+filetype plugin indent on
+colorscheme default
+set t_Co=256
+
+" 设置编码
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+set backspace=2
+set nowrap
+set nocompatible
+
+" 设置tab键
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" 特殊字符显示
+set list
+set listchars=tab:▸-
+
+" 搜索设置
+set hlsearch
+set incsearch
+set ignorecase
+
+" 开启鼠标兼容
+set mouse=a
+
+" 显示行号、侧边状态栏
+set number
+set relativenumber
+set signcolumn=yes
+
+" 状态栏
+set laststatus=2
+set statusline=
+set statusline+=%f\ %r%m
+set statusline+=%=
+set statusline+=\ L\:%4l\/%-4L\ C\:%-3c
+set statusline+=\ \[%{&fileformat}\]\ -
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+
+" fzf配置
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let g:fzf_layout = { 'down' : '40%' }
+let g:fzf_preview_window = []
