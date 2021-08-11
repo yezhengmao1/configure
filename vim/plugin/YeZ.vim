@@ -21,6 +21,7 @@ hi StatusLineNC ctermbg=237 ctermfg=215
 hi StatusLineTerm ctermfg=237 ctermbg=215
 hi FzfSelectLine ctermbg=212 ctermfg=237
 hi FzfSelectHl ctermfg=115
+hi SpecialKey ctermfg=250
 let g:fzf_colors = {
   \ 'gutter' : ['fg', 'Ignore'],
   \ 'bg+'    : ['bg', 'FzfSelectLine'],

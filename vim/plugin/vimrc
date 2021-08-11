@@ -22,7 +22,7 @@ set expandtab
 
 " 特殊字符显示
 set list
-set listchars=tab:▸-
+set listchars=tab:>-,space:·
 
 " 搜索设置
 set hlsearch
@@ -53,3 +53,6 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 let g:fzf_layout = { 'down' : '40%' }
 let g:fzf_preview_window = []
+
+" ycm配置
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'

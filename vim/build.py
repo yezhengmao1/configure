@@ -35,6 +35,8 @@ def parse_config(data):
         config_item_t("{vim-compile-args}",     config["vim-src"]["args"]              ),
         config_item_t("{insight-name}",         config["cppinsight-src"]["name"]       ),
         config_item_t("{insight-compile-args}", config["cppinsight-src"]["args"]       ),
+        config_item_t("{absl-name}",            config["abseil-src"]["name"]           ),
+        config_item_t("{absl-compile-args}",    config["abseil-src"]["args"]           ),
         config_item_t("{fzf-name}",             config["fzf-"+arch+"-pkg"]["name"]     ),
         config_item_t("{llvm-name}",            config["llvm-"+arch+"-pkg"]["name"]    ),
         config_item_t("{go-name}",              config["go-"+arch+"-pkg"]["name"]      ),

@@ -35,6 +35,13 @@ RUN useradd user -u {uid} -g {gid} -d $USER_HOME -s /bin/bash \
     && tar -xzf $BUILD_DIR/{go-name} -C /usr/local \
 # install fzf
     && tar -xzf $BUILD_DIR/{fzf-name} -C /usr/local/bin \
+# compile/install abseil
+    && mkdir -p $COMPILE_DIR/absl \
+    && tar -zxf $BUILD_DIR/{absl-name} -C $COMPILE_DIR/absl --strip-components 1 \
+    && cd $COMPILE_DIR/absl \
+    && cmake {absl-compile-args} . \
+    && make -j8 \
+    && make install \
 # compile/install cppinsight
     && mkdir -p $COMPILE_DIR/insight \
     && tar -zxf $BUILD_DIR/{insight-name} -C $COMPILE_DIR/insight --strip-components 1 \
@@ -58,7 +65,7 @@ RUN useradd user -u {uid} -g {gid} -d $USER_HOME -s /bin/bash \
     && mv {vim-bundles} $USER_HOME/.vim/bundle \
 # compile youcompleteme
     && cd $USER_HOME/.vim/bundle/YouCompleteMe \
-    && CXX="/usr/bin/g++-8" python3 ./install.py --system-libclang --clang-completer \
+    && EXTRA_CMAKE_ARGS="-DUSE_SYSTEM_ABSEIL=1" CXX="/usr/local/bin/clang++" python3 ./install.py --system-libclang --clang-completer \
 # clean env
     && rm -rf $BUILD_DIR \
     && rm -rf $COMPILE_DIR \
