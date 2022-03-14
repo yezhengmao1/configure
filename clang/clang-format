@@ -1,0 +1,20 @@
+---
+# 语言 CPP 仅支持 CLANG-FORMAT VERSION >= 12
+Language: Cpp
+# 缩进宽度为4空格
+IndentWidth: 4
+# 权限修饰符(public等)，偏移为-4，即左对齐
+AccessModifierOffset: -4
+# 权限修饰符前后是否空行
+EmptyLineBeforeAccessModifier: LogicalBlock
+# 连续的空行保留几行
+MaxEmptyLinesToKeep: 1
+# 最大列数
+ColumnLimit: 90
+# 不允许单行块
+# 函数 / while等块级 / lambda表达式
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: None
+AllowShortLambdasOnASingleLine: None
+# 指针靠右
+PointerAlignment: Right
